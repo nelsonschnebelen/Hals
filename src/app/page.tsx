@@ -6,6 +6,7 @@ import { Atmosphere } from "@/components/sections/atmosphere";
 import { Menu } from "@/components/sections/menu";
 import { Press } from "@/components/sections/press";
 import { Reservations } from "@/components/sections/reservations";
+import { OrnamentDivider } from "@/components/ui/ornament-divider";
 
 export default function HomePage() {
   return (
@@ -14,8 +15,10 @@ export default function HomePage() {
       <main>
         <Hero />
         <OurStory />
+        <OrnamentDivider className="py-4" />
         <Atmosphere />
         <Menu />
+        <OrnamentDivider className="py-4" />
         <Press />
         <Reservations />
       </main>

@@ -44,3 +44,32 @@ html.lenis body {
   background: #c5a572;
   color: #0a0807;
 }
+
+/* --- Fluid motion: drifting gilded light + gentle float --- */
+@keyframes aurora-a {
+  0% { transform: translate(-8%, -4%) scale(1); }
+  50% { transform: translate(10%, 8%) scale(1.25); }
+  100% { transform: translate(-8%, -4%) scale(1); }
+}
+@keyframes aurora-b {
+  0% { transform: translate(8%, 6%) scale(1.1); }
+  50% { transform: translate(-8%, -8%) scale(1.32); }
+  100% { transform: translate(8%, 6%) scale(1.1); }
+}
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.aurora-a { animation: aurora-a 18s ease-in-out infinite; }
+.aurora-b { animation: aurora-b 22s ease-in-out infinite; }
+.animate-float-slow { animation: float-slow 7s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .aurora-a,
+  .aurora-b,
+  .animate-float-slow {
+    animation: none;
+  }
+}
