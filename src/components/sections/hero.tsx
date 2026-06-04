@@ -46,8 +46,8 @@ export function Hero() {
     >
       <div ref={imageRef} className="absolute inset-0 -z-10 scale-110">
         <CloudImage
-          publicId="hals/hero"
-          alt="A dry-aged bone-in ribeye finished over an open flame at Hal's The Steakhouse"
+          publicId="hals/ribeye-steam"
+          alt="A bone-in ribeye steaming on the plate at Hal's The Steakhouse"
           fill
           priority
           sizes="100vw"

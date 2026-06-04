@@ -25,20 +25,20 @@ export const MENU_ITEMS = [
   {
     name: "Bone-In Ribeye",
     description:
-      "Prime, dry-aged, and finished over an open flame — the cut that built our reputation.",
-    publicId: "hals/hero",
+      "Prime and well-marbled, seared over open flame to a deep, crosshatched crust — the cut that built our reputation.",
+    publicId: "hals/ribeye",
   },
   {
-    name: "Pepper-Crusted Filet",
+    name: "Steak au Poivre",
     description:
-      "Center-cut tenderloin, cracked black pepper, brandy-cream pan sauce.",
-    publicId: "hals/menu",
+      "Center-cut filet crusted in cracked peppercorns, finished tableside with a brandy demi-glace.",
+    publicId: "hals/filet",
   },
   {
-    name: "The Hal's Chop",
+    name: "Lobster Mac & Cheese",
     description:
-      "A New Orleans–inspired plate from a kitchen that has never cut a corner.",
-    publicId: "hals/atmosphere",
+      "Penne and sweet Maine lobster baked under a blistered three-cheese crust — our New Orleans soul on a plate.",
+    publicId: "hals/lobster-mac",
   },
 ] as const;
 

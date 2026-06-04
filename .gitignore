@@ -34,3 +34,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Real photo originals — Cloudinary is the source of truth
+photos/*.jpg
+photos/*.jpeg
+photos/*.png
+photos/*.webp
+photos/*.heic
