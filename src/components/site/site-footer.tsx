@@ -17,6 +17,24 @@ export function SiteFooter() {
             >
               Reserve a Table
             </a>
+            <div className="mt-6 flex gap-4 text-xs uppercase tracking-eyebrow text-cream/55">
+              <a
+                href={SITE.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition-colors hover:text-gold"
+              >
+                Instagram
+              </a>
+              <a
+                href={LOCATIONS[0].facebook}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition-colors hover:text-gold"
+              >
+                Facebook
+              </a>
+            </div>
           </div>
 
           <div>
@@ -59,9 +77,17 @@ export function SiteFooter() {
                 href={loc.reservationsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-2 inline-block transition-colors hover:text-gold"
+                className="mt-2 block transition-colors hover:text-gold"
               >
                 Reservations →
+              </a>
+              <a
+                href={loc.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-2 inline-block transition-colors hover:text-gold"
+              >
+                Facebook →
               </a>
             </div>
           ))}

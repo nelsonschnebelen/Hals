@@ -21,6 +21,7 @@ export const SITE = {
   reservationsUrl: "https://www.opentable.com/hals-the-steakhouse",
   cities: "Buckhead · Nashville",
   tagline: "Atlanta's steakhouse since 1989 — now in Nashville.",
+  instagram: "https://www.instagram.com/halsthesteakhouse/",
 } as const;
 
 export const NAV_LINKS = [
@@ -50,6 +51,7 @@ export const LOCATIONS = [
     phoneHref: "tel:+14042610025",
     email: "EventCoordinator@hals.net",
     reservationsUrl: "https://www.opentable.com/hals-the-steakhouse",
+    facebook: "https://www.facebook.com/halsatlanta/",
     mapUrl:
       "https://www.google.com/maps/search/?api=1&query=Hal%27s%20The%20Steakhouse%2030%20Old%20Ivy%20Road%20NE%20Atlanta%20GA%2030342",
     blurb:
@@ -66,6 +68,8 @@ export const LOCATIONS = [
     phoneHref: "tel:+16155607733",
     email: "Nashville@hals.net",
     reservationsUrl: "https://www.opentable.com/r/hals-the-steakhouse-nashville",
+    facebook:
+      "https://www.facebook.com/people/Hals-The-Steakhouse-Nashville/61560298641045/",
     mapUrl:
       "https://www.google.com/maps/search/?api=1&query=Hal%27s%20The%20Steakhouse%20407%20Korean%20Veterans%20Blvd%20Nashville%20TN%2037203",
     blurb:
