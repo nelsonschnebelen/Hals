@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { motion, useReducedMotion, type Variants } from "framer-motion";
-import { CloudImage } from "@/components/ui/cloud-image";
+import Image from "next/image";
 import { Aurora } from "@/components/hero/aurora";
 import { Embers } from "@/components/hero/embers";
 import { NolaFiligree } from "@/components/hero/nola-filigree";
@@ -72,9 +72,9 @@ export function Hero() {
       className="relative flex h-[100svh] min-h-[640px] items-end overflow-hidden"
     >
       <div ref={imageRef} className="absolute inset-0 -z-10 scale-110">
-        <CloudImage
-          publicId="hals/hero"
-          alt="A prime steak finished over open flame at Hal's The Steakhouse"
+        <Image
+          src="/hero.jpg"
+          alt="A prime bone-in ribeye with red wine at Hal's The Steakhouse"
           fill
           priority
           sizes="100vw"
