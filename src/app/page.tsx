@@ -17,6 +17,7 @@ export default function HomePage() {
       <main>
         <Hero />
         <OurStory />
+        <Locations />
         <OrnamentDivider className="py-4" />
         <Atmosphere />
         <Menu />
@@ -24,7 +25,6 @@ export default function HomePage() {
         <PrivateDining />
         <OrnamentDivider className="py-4" />
         <Press />
-        <Locations />
       </main>
       <SiteFooter />
     </>

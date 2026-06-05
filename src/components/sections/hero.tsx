@@ -78,11 +78,11 @@ export function Hero() {
           fill
           priority
           sizes="100vw"
-          className="object-cover object-[50%_38%]"
+          className="object-cover object-[50%_80%]"
         />
-        {/* Cinematic vignette — dark enough at the base to carry text. */}
-        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/55 to-ink/15" />
-        <div className="absolute inset-0 bg-gradient-to-r from-ink/70 via-transparent to-transparent" />
+        {/* Keep the steak bright; carry the headline with a base + left wash. */}
+        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-ink/80 via-ink/10 to-transparent" />
       </div>
 
       <Aurora />
