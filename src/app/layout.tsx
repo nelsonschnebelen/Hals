@@ -50,6 +50,7 @@ export default function RootLayout({
     <html lang="en" className={`${playfair.variable} ${inter.variable}`}>
       <body className="bg-ink text-cream antialiased">
         <SmoothScroll>{children}</SmoothScroll>
+        <div className="grain-overlay" aria-hidden />
       </body>
     </html>
   );

@@ -36,7 +36,7 @@ export function SiteHeader() {
             <a
               key={link.href}
               href={link.href}
-              className="text-[13px] uppercase tracking-wide text-cream/70 transition-colors hover:text-gold"
+              className="link-underline text-[13px] uppercase tracking-wide text-cream/70 transition-colors hover:text-gold"
             >
               {link.label}
             </a>

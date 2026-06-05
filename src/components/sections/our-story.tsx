@@ -1,4 +1,5 @@
 import { Reveal } from "@/components/ui/reveal";
+import { Counter } from "@/components/ui/counter";
 import { STATS } from "@/lib/content";
 
 export function OurStory() {
@@ -37,7 +38,9 @@ export function OurStory() {
           <div className="grid h-full content-center gap-px overflow-hidden rounded-2xl border border-white/5 bg-white/[0.02]">
             {STATS.map((stat) => (
               <div key={stat.label} className="px-8 py-10">
-                <div className="font-serif text-5xl text-gold">{stat.value}</div>
+                <div className="font-serif text-5xl text-gold">
+                  <Counter value={stat.value} />
+                </div>
                 <div className="mt-2 text-sm uppercase tracking-eyebrow text-cream/60">
                   {stat.label}
                 </div>

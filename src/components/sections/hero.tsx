@@ -78,7 +78,7 @@ export function Hero() {
           fill
           priority
           sizes="100vw"
-          className="object-cover object-[50%_80%]"
+          className="animate-kenburns object-cover object-[50%_80%]"
         />
         {/* Keep the steak bright; carry the headline with a base + left wash. */}
         <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-transparent" />
@@ -138,6 +138,16 @@ export function Hero() {
             </a>
           </div>
         </motion.div>
+      </div>
+
+      {/* Scroll cue */}
+      <div className="absolute bottom-7 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-3 sm:flex">
+        <span className="text-[10px] uppercase tracking-eyebrow text-cream/45">
+          Scroll
+        </span>
+        <span className="relative block h-12 w-px overflow-hidden bg-cream/15">
+          <span className="scroll-dot absolute inset-x-0 top-0 block h-1/3 bg-gold" />
+        </span>
       </div>
     </section>
   );

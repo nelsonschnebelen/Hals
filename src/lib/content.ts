@@ -88,26 +88,31 @@ export const MENU_ITEMS = [
     name: "Bone-In Ribeye",
     description:
       "Prime and well-marbled, seared over open flame to a deep, crosshatched crust.",
+    image: IMG.steakIron,
   },
   {
     name: "Steak au Poivre",
     description:
       "Center-cut filet crusted in cracked peppercorns, finished with a brandy demi-glace.",
+    image: IMG.steakBoard,
   },
   {
     name: "Lobster Mac & Cheese",
     description:
       "Penne and sweet Maine lobster baked under a blistered three-cheese crust.",
+    image: IMG.fineDining,
   },
   {
     name: "Blackened Redfish",
     description:
       "A New Orleans classic — Gulf redfish, cast-iron blackened, lemon butter.",
+    image: IMG.chef,
   },
   {
     name: "Bananas Foster",
     description:
       "Flambéed tableside in dark rum and brown sugar, over vanilla bean ice cream.",
+    image: IMG.hero,
   },
 ] as const;
 

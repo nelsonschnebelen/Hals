@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Reveal } from "@/components/ui/reveal";
 import { Parallax } from "@/components/ui/parallax";
+import { MenuList } from "@/components/sections/menu-list";
 import { MENU_FEATURE, MENU_ITEMS, SITE } from "@/lib/content";
 
 export function Menu() {
@@ -32,21 +33,7 @@ export function Menu() {
             </h2>
           </Reveal>
 
-          <div className="mt-10 divide-y divide-white/5 border-y border-white/5">
-            {MENU_ITEMS.map((item, i) => (
-              <Reveal key={item.name} variant="up" delay={i * 0.06}>
-                <div className="flex items-baseline justify-between gap-6 py-5">
-                  <div>
-                    <h3 className="font-serif text-xl text-cream">{item.name}</h3>
-                    <p className="mt-1 text-sm leading-relaxed text-cream/60">
-                      {item.description}
-                    </p>
-                  </div>
-                  <span className="mt-1 hidden h-1.5 w-1.5 shrink-0 rounded-full bg-gold/70 sm:block" />
-                </div>
-              </Reveal>
-            ))}
-          </div>
+          <MenuList items={MENU_ITEMS} />
 
           <Reveal variant="up" delay={0.1}>
             <a
