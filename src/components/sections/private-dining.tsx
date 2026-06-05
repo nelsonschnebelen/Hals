@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Reveal } from "@/components/ui/reveal";
+import { Parallax } from "@/components/ui/parallax";
 import { IMG, LOCATIONS } from "@/lib/content";
 
 const atlanta = LOCATIONS[0];
@@ -46,13 +47,15 @@ export function PrivateDining() {
 
         <Reveal variant="right" amount={0.35} className="lg:order-1">
           <div className="relative aspect-[4/5] overflow-hidden rounded-2xl">
-            <Image
-              src={IMG.fineDining}
-              alt="A private celebration at Hal's The Steakhouse"
-              fill
-              sizes="(max-width: 1024px) 100vw, 50vw"
-              className="object-cover"
-            />
+            <Parallax className="absolute inset-0">
+              <Image
+                src={IMG.fineDining}
+                alt="A private celebration at Hal's The Steakhouse"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover"
+              />
+            </Parallax>
             <div className="absolute inset-0 bg-gradient-to-t from-ink/55 via-transparent to-transparent" />
           </div>
         </Reveal>

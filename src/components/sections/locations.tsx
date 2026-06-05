@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Reveal } from "@/components/ui/reveal";
+import { Parallax } from "@/components/ui/parallax";
 import { LOCATIONS } from "@/lib/content";
 
 /** Both locations, presented as an invitation — book, call, or get directions. */
@@ -29,13 +30,15 @@ export function Locations() {
             <Reveal key={loc.id} variant="up" amount={0.25} delay={i * 0.08}>
               <article className="group h-full overflow-hidden rounded-2xl border border-white/5 bg-ink-800/60">
                 <div className="relative aspect-[16/9] overflow-hidden">
-                  <Image
-                    src={loc.image}
-                    alt={`Hal's The Steakhouse — ${loc.city}`}
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 50vw"
-                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                  />
+                  <Parallax className="absolute inset-0" speed={10}>
+                    <Image
+                      src={loc.image}
+                      alt={`Hal's The Steakhouse — ${loc.city}`}
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 50vw"
+                      className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                    />
+                  </Parallax>
                   <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/30 to-transparent" />
                   <div className="absolute bottom-5 left-6">
                     <p className="text-xs uppercase tracking-eyebrow text-gold">

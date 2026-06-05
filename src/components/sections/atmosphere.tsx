@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Reveal } from "@/components/ui/reveal";
+import { Parallax } from "@/components/ui/parallax";
 import { IMG } from "@/lib/content";
 
 export function Atmosphere() {
@@ -8,13 +9,15 @@ export function Atmosphere() {
       <div className="mx-auto grid max-w-6xl items-center gap-14 px-6 lg:grid-cols-2">
         <Reveal variant="right" amount={0.35}>
           <div className="relative aspect-[4/5] overflow-hidden rounded-2xl">
-            <Image
-              src={IMG.diningRoom}
-              alt="The warm, low-lit dining room at Hal's The Steakhouse"
-              fill
-              sizes="(max-width: 1024px) 100vw, 50vw"
-              className="object-cover"
-            />
+            <Parallax className="absolute inset-0">
+              <Image
+                src={IMG.diningRoom}
+                alt="The warm, low-lit dining room at Hal's The Steakhouse"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover"
+              />
+            </Parallax>
             <div className="absolute inset-0 bg-gradient-to-t from-ink/50 via-transparent to-transparent" />
           </div>
         </Reveal>

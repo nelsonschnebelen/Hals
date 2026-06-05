@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Reveal } from "@/components/ui/reveal";
+import { Parallax } from "@/components/ui/parallax";
 import { MENU_FEATURE, MENU_ITEMS, SITE } from "@/lib/content";
 
 export function Menu() {
@@ -8,13 +9,15 @@ export function Menu() {
       <div className="mx-auto grid max-w-6xl gap-14 px-6 lg:grid-cols-2 lg:items-center">
         <Reveal variant="right" amount={0.3}>
           <div className="relative aspect-[4/5] overflow-hidden rounded-2xl">
-            <Image
-              src={MENU_FEATURE.src}
-              alt={MENU_FEATURE.alt}
-              fill
-              sizes="(max-width: 1024px) 100vw, 50vw"
-              className="object-cover"
-            />
+            <Parallax className="absolute inset-0">
+              <Image
+                src={MENU_FEATURE.src}
+                alt={MENU_FEATURE.alt}
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover"
+              />
+            </Parallax>
             <div className="absolute inset-0 bg-gradient-to-t from-ink/60 via-transparent to-transparent" />
           </div>
         </Reveal>
