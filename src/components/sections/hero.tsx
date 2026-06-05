@@ -1,13 +1,13 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { motion, useReducedMotion, type Variants } from "framer-motion";
 import Image from "next/image";
+import { motion, useReducedMotion, type Variants } from "framer-motion";
 import { Aurora } from "@/components/hero/aurora";
 import { Embers } from "@/components/hero/embers";
 import { NolaFiligree } from "@/components/hero/nola-filigree";
 import { EASE } from "@/lib/animations";
-import { SITE } from "@/lib/content";
+import { SITE, IMG } from "@/lib/content";
 
 const LINE_ONE = ["A", "Buckhead", "institution,"];
 const LINE_TWO = ["served", "since", "1989."];
@@ -22,7 +22,7 @@ const word: Variants = {
 };
 
 /**
- * Hero: a steaming bone-in ribeye under self-drawing New Orleans ironwork,
+ * Hero: the real Hal's ribeye under self-drawing New Orleans ironwork,
  * drifting gold embers, and a slow gilded aurora. The photo parallaxes on
  * scroll. Every layer stills under prefers-reduced-motion.
  */
@@ -40,7 +40,7 @@ export function Hero() {
       const { gsap, ScrollTrigger } = await import("@/lib/gsap");
       ctx = gsap.context(() => {
         gsap.to(imageRef.current, {
-          yPercent: 18,
+          yPercent: 14,
           ease: "none",
           scrollTrigger: {
             trigger: sectionRef.current,
@@ -73,20 +73,22 @@ export function Hero() {
     >
       <div ref={imageRef} className="absolute inset-0 -z-10 scale-110">
         <Image
-          src="/hero.jpg"
+          src={IMG.hero}
           alt="A prime bone-in ribeye with red wine at Hal's The Steakhouse"
           fill
           priority
           sizes="100vw"
-          className="object-cover"
+          className="object-cover object-[50%_38%]"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/45 to-ink/30" />
+        {/* Cinematic vignette — dark enough at the base to carry text. */}
+        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/55 to-ink/15" />
+        <div className="absolute inset-0 bg-gradient-to-r from-ink/70 via-transparent to-transparent" />
       </div>
 
       <Aurora />
       <Embers />
 
-      <div className="absolute left-1/2 top-12 w-[min(880px,92vw)] -translate-x-1/2 sm:top-16">
+      <div className="absolute left-1/2 top-12 w-[min(820px,90vw)] -translate-x-1/2 sm:top-16">
         <div className="animate-float-slow">
           <NolaFiligree />
         </div>
@@ -99,7 +101,7 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.1 }}
         >
-          {SITE.cities}
+          {SITE.cities} · Est. 1989
         </motion.p>
 
         <motion.h1
@@ -115,26 +117,24 @@ export function Hero() {
         <motion.div
           initial={reduce ? false : { opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1 }}
+          transition={{ duration: 0.8, delay: 0.95 }}
         >
-          <p className="mt-6 max-w-xl text-base text-cream/75 sm:text-lg">
-            New Orleans–inspired steaks, an open kitchen, nightly live music, and a
-            room that has welcomed Atlanta for more than three decades.
+          <p className="mt-6 max-w-md text-base text-cream/80 sm:text-lg">
+            Prime steaks over open flame, live music, and a room worth dressing
+            up for.
           </p>
-          <div className="mt-10 flex flex-wrap items-center gap-4">
+          <div className="mt-9 flex flex-wrap items-center gap-4">
             <a
-              href={SITE.reservationsUrl}
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#locations"
               className="rounded-full bg-gold px-7 py-3 text-sm font-medium uppercase tracking-eyebrow text-ink transition-transform hover:scale-[1.03]"
             >
               Reserve a Table
             </a>
             <a
-              href="#story"
-              className="text-sm uppercase tracking-eyebrow text-cream/70 transition-colors hover:text-gold"
+              href="#menu"
+              className="rounded-full border border-cream/25 px-7 py-3 text-sm uppercase tracking-eyebrow text-cream transition-colors hover:border-gold hover:text-gold"
             >
-              Our Story ↓
+              View the Menu
             </a>
           </div>
         </motion.div>

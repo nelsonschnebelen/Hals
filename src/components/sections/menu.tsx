@@ -1,4 +1,4 @@
-import { CloudImage } from "@/components/ui/cloud-image";
+import Image from "next/image";
 import { Reveal } from "@/components/ui/reveal";
 import { MENU_FEATURE, MENU_ITEMS, SITE } from "@/lib/content";
 
@@ -8,8 +8,8 @@ export function Menu() {
       <div className="mx-auto grid max-w-6xl gap-14 px-6 lg:grid-cols-2 lg:items-center">
         <Reveal variant="right" amount={0.3}>
           <div className="relative aspect-[4/5] overflow-hidden rounded-2xl">
-            <CloudImage
-              publicId={MENU_FEATURE.publicId}
+            <Image
+              src={MENU_FEATURE.src}
               alt={MENU_FEATURE.alt}
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
