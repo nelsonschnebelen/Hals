@@ -91,6 +91,62 @@ export function Locations() {
                       Directions
                     </a>
                   </div>
+
+                  {loc.valet && (
+                    <details className="group/valet mt-7 border-t border-white/5 pt-5">
+                      <summary className="flex cursor-pointer list-none items-center justify-between text-xs uppercase tracking-eyebrow text-gold">
+                        <span>Valet Parking</span>
+                        <span className="text-base leading-none transition-transform duration-300 group-open/valet:rotate-45">
+                          +
+                        </span>
+                      </summary>
+
+                      <p className="mt-5 text-sm leading-relaxed text-cream/65">
+                        {loc.valet.note}
+                      </p>
+
+                      <div className="mt-6 space-y-7">
+                        {loc.valet.entrances.map((entrance) => (
+                          <div key={entrance.name}>
+                            <h4 className="font-serif text-xl italic text-cream">
+                              {entrance.name}
+                            </h4>
+                            {entrance.sub && (
+                              <p className="mt-0.5 text-[11px] uppercase tracking-wide text-cream/45">
+                                {entrance.sub}
+                              </p>
+                            )}
+                            <span className="mt-3 block h-px w-10 bg-gold/50" />
+
+                            <div className="mt-4 space-y-4">
+                              {entrance.groups.map((group, gi) => (
+                                <div key={gi}>
+                                  {group.from && (
+                                    <p className="mb-2 text-[11px] font-medium uppercase tracking-eyebrow text-gold/80">
+                                      {group.from}
+                                    </p>
+                                  )}
+                                  <ol className="space-y-1.5">
+                                    {group.steps.map((step, si) => (
+                                      <li
+                                        key={si}
+                                        className="flex gap-3 text-sm leading-relaxed text-cream/70"
+                                      >
+                                        <span className="mt-px font-serif text-xs text-gold/70">
+                                          {si + 1}
+                                        </span>
+                                        <span>{step}</span>
+                                      </li>
+                                    ))}
+                                  </ol>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </details>
+                  )}
                 </div>
               </article>
             </Reveal>

@@ -57,6 +57,7 @@ export const LOCATIONS = [
     blurb:
       "The original room. Live music nightly, an open kitchen, and an upper patio looking out over Buckhead.",
     image: IMG.diningRoom,
+    valet: null,
   },
   {
     id: "nashville",
@@ -75,6 +76,45 @@ export const LOCATIONS = [
     blurb:
       "Opened 2024 in the heart of downtown. Same cuts, same hospitality, a few steps from Broadway.",
     image: IMG.fineDining,
+    valet: {
+      note: "Valet parking directs you to the AC Marriott parking deck. Arrive by either approach below.",
+      entrances: [
+        {
+          name: "Alley Entrance",
+          sub: "Between Hal's & The Joseph",
+          groups: [
+            {
+              from: "",
+              steps: [
+                "Turn into the alley between Hal's and The Joseph Hotel.",
+                "Continue straight, then turn right onto Peabody Street.",
+                "Turn right onto Rep. John Lewis Way.",
+                "Turn right into the AC Marriott parking deck.",
+              ],
+            },
+          ],
+        },
+        {
+          name: "Rep. John Lewis Way Entrance",
+          sub: "",
+          groups: [
+            {
+              from: "From Korean Veterans Blvd.",
+              steps: [
+                "Turn onto Rep. John Lewis Way — Calacas will be on the corner.",
+                "Continue past Calacas and turn into the AC Marriott parking deck.",
+              ],
+            },
+            {
+              from: "From Peabody St.",
+              steps: [
+                "Turn into the AC Marriott parking deck before reaching Calacas.",
+              ],
+            },
+          ],
+        },
+      ],
+    },
   },
 ] as const;
 
