@@ -1,3 +1,5 @@
+import fs from "node:fs";
+import path from "node:path";
 import Image from "next/image";
 import { Reveal } from "@/components/ui/reveal";
 import { GALLERY } from "@/lib/content";
@@ -8,8 +10,41 @@ const spanClass: Record<string, string> = {
   normal: "aspect-square",
 };
 
+// Visual rhythm for dropped-in photos — repeats across the grid.
+const SPAN_PATTERN = ["tall", "normal", "wide", "normal", "normal", "tall"];
+
+/**
+ * Reads /public/gallery at build time. Anything dropped there (jpg/png/webp/
+ * avif) is rendered automatically — the team can add Instagram creative with
+ * zero code changes. Falls back to the curated set when the folder is empty.
+ */
+function readDroppedGallery() {
+  const dir = path.join(process.cwd(), "public", "gallery");
+  let files: string[] = [];
+  try {
+    files = fs
+      .readdirSync(dir)
+      .filter((f) => /\.(jpe?g|png|webp|avif)$/i.test(f))
+      .sort();
+  } catch {
+    return [];
+  }
+  return files.map((file, i) => ({
+    src: `/gallery/${file}`,
+    alt: file
+      .replace(/\.[^.]+$/, "")
+      .replace(/^\d+[-_\s]*/, "")
+      .replace(/[-_]+/g, " ")
+      .trim() || "Hal's The Steakhouse",
+    span: SPAN_PATTERN[i % SPAN_PATTERN.length],
+  }));
+}
+
 /** Image-led gallery — the "I need to go here" proof. */
 export function Gallery() {
+  const dropped = readDroppedGallery();
+  const items = dropped.length > 0 ? dropped : GALLERY;
+
   return (
     <section id="gallery" className="border-t border-white/5 py-28">
       <div className="mx-auto max-w-6xl px-6">
@@ -35,9 +70,9 @@ export function Gallery() {
         </div>
 
         <div className="grid auto-rows-[1fr] grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4">
-          {GALLERY.map((item, i) => (
+          {items.map((item, i) => (
             <Reveal
-              key={item.alt}
+              key={`${item.src}-${i}`}
               variant="scale"
               amount={0.2}
               delay={(i % 3) * 0.06}
