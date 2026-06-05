@@ -21,24 +21,37 @@ export const STATS = [
   { value: "2", label: "Cities and counting" },
 ] as const;
 
+// Featured menu photo — uses an existing Cloudinary asset so it always renders.
+export const MENU_FEATURE = {
+  publicId: "hals/menu",
+  alt: "A prime cut from Hal's, finished over open flame",
+};
+
 export const MENU_ITEMS = [
   {
     name: "Bone-In Ribeye",
     description:
-      "Prime and well-marbled, seared over open flame to a deep, crosshatched crust — the cut that built our reputation.",
-    publicId: "hals/ribeye",
+      "Prime and well-marbled, seared over open flame to a deep, crosshatched crust.",
   },
   {
     name: "Steak au Poivre",
     description:
-      "Center-cut filet crusted in cracked peppercorns, finished tableside with a brandy demi-glace.",
-    publicId: "hals/filet",
+      "Center-cut filet crusted in cracked peppercorns, finished with a brandy demi-glace.",
   },
   {
     name: "Lobster Mac & Cheese",
     description:
-      "Penne and sweet Maine lobster baked under a blistered three-cheese crust — our New Orleans soul on a plate.",
-    publicId: "hals/lobster-mac",
+      "Penne and sweet Maine lobster baked under a blistered three-cheese crust.",
+  },
+  {
+    name: "Blackened Redfish",
+    description:
+      "A New Orleans classic — Gulf redfish, cast-iron blackened, lemon butter.",
+  },
+  {
+    name: "Bananas Foster",
+    description:
+      "Flambéed tableside in dark rum and brown sugar, over vanilla bean ice cream.",
   },
 ] as const;
 
