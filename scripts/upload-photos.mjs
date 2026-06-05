@@ -19,6 +19,7 @@ cloudinary.config({
 
 // local filename (without extension) -> Cloudinary public id
 const FILE_MAP = {
+  hero: "hals/hero", // hero photo (e.g. bone-in ribeye, wine + water, dark backdrop)
   ribeye: "hals/ribeye", // grilled bone-in ribeye, red flower
   "ribeye-steam": "hals/ribeye-steam", // steaming bone-in chop (hero)
   filet: "hals/filet", // pepper-crusted filet / steak au poivre
