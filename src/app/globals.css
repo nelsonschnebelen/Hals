@@ -45,33 +45,6 @@ html.lenis body {
   color: #0a0807;
 }
 
-/* --- Fluid motion: drifting gilded light + gentle float --- */
-@keyframes aurora-a {
-  0% { transform: translate(-8%, -4%) scale(1); }
-  50% { transform: translate(10%, 8%) scale(1.25); }
-  100% { transform: translate(-8%, -4%) scale(1); }
-}
-@keyframes aurora-b {
-  0% { transform: translate(8%, 6%) scale(1.1); }
-  50% { transform: translate(-8%, -8%) scale(1.32); }
-  100% { transform: translate(8%, 6%) scale(1.1); }
-}
-@keyframes float-slow {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
-
-.aurora-a { animation: aurora-a 18s ease-in-out infinite; }
-.aurora-b { animation: aurora-b 22s ease-in-out infinite; }
-.animate-float-slow { animation: float-slow 7s ease-in-out infinite; }
-
-/* Cinematic hero: slow Ken Burns push-in. */
-@keyframes kenburns {
-  0% { transform: scale(1); }
-  100% { transform: scale(1.12); }
-}
-.animate-kenburns { animation: kenburns 24s ease-out forwards; }
-
 /* Kinetic marquee. */
 @keyframes marquee {
   0% { transform: translateX(0); }
@@ -86,14 +59,15 @@ html.lenis body {
 }
 .scroll-dot { animation: scroll-dot 2.2s cubic-bezier(0.76, 0, 0.24, 1) infinite; }
 
-/* Filmic grain — a fixed, subtle noise wash for depth. */
+/* Filmic grain — a fixed, subtle noise wash for depth. The noise tile is
+   generated at runtime by <Grain /> (a canvas, not an asset). */
 .grain-overlay {
   position: fixed;
   inset: -60%;
   z-index: 70;
   pointer-events: none;
   opacity: 0.05;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
   animation: grain 0.6s steps(4) infinite;
 }
 @keyframes grain {
@@ -128,10 +102,6 @@ html.lenis body {
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .aurora-a,
-  .aurora-b,
-  .animate-float-slow,
-  .animate-kenburns,
   .marquee-track,
   .scroll-dot,
   .grain-overlay {

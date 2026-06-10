@@ -38,13 +38,18 @@ export function MenuList({ items }: { items: readonly MenuItem[] }) {
           onMouseEnter={() => setActive(i)}
           className="group flex items-baseline justify-between gap-6 border-b border-white/5 py-5 transition-colors last:border-b-0"
         >
-          <div className="transition-transform duration-500 ease-out group-hover:lg:translate-x-3">
-            <h3 className="font-serif text-xl text-cream transition-colors group-hover:text-gold">
-              {item.name}
-            </h3>
-            <p className="mt-1 max-w-md text-sm leading-relaxed text-cream/60">
-              {item.description}
-            </p>
+          <div className="flex gap-5 transition-transform duration-500 ease-out group-hover:lg:translate-x-3">
+            <span className="pt-1 font-serif text-xs italic text-gold/50 transition-colors group-hover:text-gold">
+              {String(i + 1).padStart(2, "0")}
+            </span>
+            <div>
+              <h3 className="font-serif text-xl text-cream transition-colors group-hover:text-gold">
+                {item.name}
+              </h3>
+              <p className="mt-1 max-w-md text-sm leading-relaxed text-cream/60">
+                {item.description}
+              </p>
+            </div>
           </div>
           <span className="mt-2 hidden h-1.5 w-1.5 shrink-0 rounded-full bg-gold/40 transition-colors group-hover:bg-gold sm:block" />
         </div>

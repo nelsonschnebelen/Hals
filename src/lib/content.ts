@@ -1,17 +1,34 @@
 /** Single source of truth for homepage copy. Swap for final client copy. */
 
-// Curated photography. Local hero ships in /public; the rest are optimized
-// stock that reads as a premium steakhouse until real photos replace them.
+// Placeholder photography, matched per section/dish to what its copy
+// describes. Each is a swap point: replace the URL with the real Hal's
+// photo of the same subject and nothing else changes. The hero ships
+// locally in /public.
 const UNSPLASH = (id: string) =>
   `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&q=80&w=1600`;
 
 export const IMG = {
   hero: "/hero.jpg", // real Hal's bone-in ribeye + wine
-  steakIron: UNSPLASH("1546964124-0cce460f38ef"),
-  steakBoard: UNSPLASH("1544025162-d76694265947"),
-  diningRoom: UNSPLASH("1517248135467-4c7edcad34c4"),
-  fineDining: UNSPLASH("1414235077428-338989a2e8c0"),
-  chef: UNSPLASH("1551218808-94e220e084d2"),
+
+  // Dishes — one placeholder per menu item, matched to its description.
+  ribeye: UNSPLASH("1546964124-0cce460f38ef"), // → bone-in ribeye, crosshatched crust
+  auPoivre: UNSPLASH("1544025162-d76694265947"), // → sliced filet with pan sauce
+  lobsterMac: UNSPLASH("1476224203421-9ac39bcb3327"), // → baked pasta, blistered cheese crust
+  redfish: UNSPLASH("1467003909585-2f8a72700288"), // → pan-finished Gulf fish, lemon butter
+  bananasFoster: UNSPLASH("1563805042-7684c019e1cb"), // → dessert over vanilla bean ice cream
+  openFlame: UNSPLASH("1558030006-450675393462"), // → cuts searing over open flame
+
+  // Rooms & atmosphere — one placeholder per section subject.
+  diningRoom: UNSPLASH("1517248135467-4c7edcad34c4"), // → the warm, low-lit dining room
+  liveMusic: UNSPLASH("1511671782779-c97d3d27a1d4"), // → the band playing downstairs
+  barCocktails: UNSPLASH("1514362545857-3bc16c4c7d1b"), // → drinks at the bar
+  openKitchen: UNSPLASH("1551218808-94e220e084d2"), // → chefs in the open kitchen
+  privateTable: UNSPLASH("1464366400600-7168b8af9bc3"), // → candle-lit private dining table
+  wine: UNSPLASH("1510812431401-41d2bd2722f3"), // → red wine, poured tableside
+
+  // Locations — one room per city.
+  atlantaRoom: UNSPLASH("1555396273-367ea4eb4db5"), // → the original Buckhead room
+  nashvilleRoom: UNSPLASH("1559339352-11d035aa65de"), // → the new downtown Nashville room
 } as const;
 
 export const SITE = {
@@ -56,7 +73,7 @@ export const LOCATIONS = [
       "https://www.google.com/maps/search/?api=1&query=Hal%27s%20The%20Steakhouse%2030%20Old%20Ivy%20Road%20NE%20Atlanta%20GA%2030342",
     blurb:
       "The original room. Live music nightly, an open kitchen, and an upper patio looking out over Buckhead.",
-    image: IMG.diningRoom,
+    image: IMG.atlantaRoom,
     valet: null,
   },
   {
@@ -75,7 +92,7 @@ export const LOCATIONS = [
       "https://www.google.com/maps/search/?api=1&query=Hal%27s%20The%20Steakhouse%20407%20Korean%20Veterans%20Blvd%20Nashville%20TN%2037203",
     blurb:
       "Opened 2024 in the heart of downtown. Same cuts, same hospitality, a few steps from Broadway.",
-    image: IMG.fineDining,
+    image: IMG.nashvilleRoom,
     valet: {
       note: "Valet parking directs you to the AC Marriott parking deck. Arrive by either approach below.",
       entrances: [
@@ -119,7 +136,7 @@ export const LOCATIONS = [
 ] as const;
 
 export const MENU_FEATURE = {
-  src: IMG.steakIron,
+  src: IMG.openFlame,
   alt: "A prime cut from Hal's, finished over open flame",
 };
 
@@ -128,42 +145,45 @@ export const MENU_ITEMS = [
     name: "Bone-In Ribeye",
     description:
       "Prime and well-marbled, seared over open flame to a deep, crosshatched crust.",
-    image: IMG.steakIron,
+    image: IMG.ribeye,
   },
   {
     name: "Steak au Poivre",
     description:
       "Center-cut filet crusted in cracked peppercorns, finished with a brandy demi-glace.",
-    image: IMG.steakBoard,
+    image: IMG.auPoivre,
   },
   {
     name: "Lobster Mac & Cheese",
     description:
       "Penne and sweet Maine lobster baked under a blistered three-cheese crust.",
-    image: IMG.fineDining,
+    image: IMG.lobsterMac,
   },
   {
     name: "Blackened Redfish",
     description:
       "A New Orleans classic — Gulf redfish, cast-iron blackened, lemon butter.",
-    image: IMG.chef,
+    image: IMG.redfish,
   },
   {
     name: "Bananas Foster",
     description:
       "Flambéed tableside in dark rum and brown sugar, over vanilla bean ice cream.",
-    image: IMG.hero,
+    image: IMG.bananasFoster,
   },
 ] as const;
 
-/** Gallery grid — mixed aspect, image-led. */
+/** Gallery — three parallax columns; alts double as the shot list. */
 export const GALLERY = [
-  { src: IMG.hero, alt: "Bone-in ribeye with a glass of red", span: "tall" },
-  { src: IMG.diningRoom, alt: "The dining room", span: "wide" },
-  { src: IMG.steakBoard, alt: "A board of slow-finished cuts", span: "normal" },
-  { src: IMG.chef, alt: "The open kitchen at work", span: "normal" },
-  { src: IMG.fineDining, alt: "An evening at the table", span: "wide" },
-  { src: IMG.steakIron, alt: "Seared over open flame", span: "tall" },
+  { src: IMG.hero, alt: "Bone-in ribeye with a glass of red" },
+  { src: IMG.diningRoom, alt: "The dining room at golden hour" },
+  { src: IMG.barCocktails, alt: "Cocktails at the bar" },
+  { src: IMG.openKitchen, alt: "The open kitchen at work" },
+  { src: IMG.liveMusic, alt: "The band, downstairs" },
+  { src: IMG.openFlame, alt: "Seared over open flame" },
+  { src: IMG.wine, alt: "Poured tableside" },
+  { src: IMG.auPoivre, alt: "A board of slow-finished cuts" },
+  { src: IMG.privateTable, alt: "An evening at the table" },
 ] as const;
 
 export const PRESS = [

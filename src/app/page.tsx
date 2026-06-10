@@ -8,8 +8,8 @@ import { Gallery } from "@/components/sections/gallery";
 import { PrivateDining } from "@/components/sections/private-dining";
 import { Press } from "@/components/sections/press";
 import { Locations } from "@/components/sections/locations";
+import { Reservations } from "@/components/sections/reservations";
 import { Marquee } from "@/components/ui/marquee";
-import { OrnamentDivider } from "@/components/ui/ornament-divider";
 
 export default function HomePage() {
   return (
@@ -24,8 +24,8 @@ export default function HomePage() {
         <Menu />
         <Gallery />
         <PrivateDining />
-        <OrnamentDivider className="py-4" />
         <Press />
+        <Reservations />
       </main>
       <SiteFooter />
     </>

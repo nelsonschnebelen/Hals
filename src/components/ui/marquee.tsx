@@ -9,13 +9,19 @@ const ITEMS = [
 
 function Group() {
   return (
-    <div className="flex shrink-0 items-center" aria-hidden>
+    <div className="flex shrink-0 items-baseline" aria-hidden>
       {ITEMS.map((word, i) => (
-        <span key={i} className="flex items-center">
-          <span className="px-8 font-serif text-3xl uppercase tracking-wide text-cream/85 sm:text-5xl">
+        <span key={i} className="flex items-baseline">
+          <span
+            className={
+              i % 2 === 0
+                ? "px-10 font-serif text-3xl text-cream/85 sm:text-5xl"
+                : "px-10 font-serif text-3xl italic text-gold/80 sm:text-5xl"
+            }
+          >
             {word}
           </span>
-          <span className="h-1.5 w-1.5 shrink-0 rotate-45 bg-gold" />
+          <span className="h-px w-8 shrink-0 self-center bg-white/15" />
         </span>
       ))}
     </div>
@@ -25,7 +31,7 @@ function Group() {
 /** Kinetic marquee — a slow, endless ribbon of the brand's promises. */
 export function Marquee() {
   return (
-    <section className="relative overflow-hidden border-y border-white/5 bg-ink-800/30 py-7">
+    <section className="relative overflow-hidden border-y border-white/5 bg-ink-800/30 py-8">
       <div className="marquee-track flex w-max">
         <Group />
         <Group />

@@ -1,26 +1,30 @@
 import Image from "next/image";
 import { Reveal } from "@/components/ui/reveal";
+import { ImageReveal } from "@/components/ui/image-reveal";
 import { Parallax } from "@/components/ui/parallax";
+import { SectionHeading } from "@/components/ui/section-heading";
 import { LOCATIONS } from "@/lib/content";
 
 /** Both locations, presented as an invitation — book, call, or get directions. */
 export function Locations() {
   return (
-    <section id="locations" className="border-t border-white/5 bg-ink-800/40 py-28">
-      <div className="mx-auto max-w-6xl px-6">
-        <div className="mx-auto mb-16 max-w-2xl text-center">
-          <Reveal variant="up">
-            <p className="eyebrow mb-5">Visit Us</p>
-          </Reveal>
-          <Reveal variant="up" delay={0.05}>
-            <h2 className="font-serif text-4xl leading-tight text-balance sm:text-5xl">
-              Two cities. One table worth keeping.
-            </h2>
-          </Reveal>
+    <section id="locations" className="border-t border-white/5 bg-ink-800/40 py-28 sm:py-36">
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="mb-16 flex flex-wrap items-end justify-between gap-6">
+          <SectionHeading
+            index="02"
+            eyebrow="Visit Us"
+            title={
+              <>
+                Two cities. One table <em className="text-gold">worth keeping</em>.
+              </>
+            }
+            className="max-w-2xl"
+          />
           <Reveal variant="up" delay={0.1}>
-            <p className="mx-auto mt-5 max-w-xl text-cream/70">
-              Book online in seconds, or call the room directly — someone who has
-              worked here for years will pick up.
+            <p className="max-w-sm text-cream/70">
+              Book online in seconds, or call the room directly — someone who
+              has worked here for years will pick up.
             </p>
           </Reveal>
         </div>
@@ -28,18 +32,21 @@ export function Locations() {
         <div className="grid gap-8 lg:grid-cols-2">
           {LOCATIONS.map((loc, i) => (
             <Reveal key={loc.id} variant="up" amount={0.25} delay={i * 0.08}>
-              <article className="group h-full overflow-hidden rounded-2xl border border-white/5 bg-ink-800/60">
-                <div className="relative aspect-[16/9] overflow-hidden">
-                  <Parallax className="absolute inset-0" speed={10}>
-                    <Image
-                      src={loc.image}
-                      alt={`Hal's The Steakhouse — ${loc.city}`}
-                      fill
-                      sizes="(max-width: 1024px) 100vw, 50vw"
-                      className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                    />
-                  </Parallax>
-                  <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/30 to-transparent" />
+              <article className="group h-full overflow-hidden border border-white/10 bg-ink-800/60">
+                {/* Placeholder → the room in each city. */}
+                <div className="relative">
+                  <ImageReveal className="aspect-[16/9]" delay={i * 0.1}>
+                    <Parallax className="absolute inset-0" speed={10}>
+                      <Image
+                        src={loc.image}
+                        alt={`Hal's The Steakhouse — ${loc.city}`}
+                        fill
+                        sizes="(max-width: 1024px) 100vw, 50vw"
+                        className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                      />
+                    </Parallax>
+                    <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/30 to-transparent" />
+                  </ImageReveal>
                   <div className="absolute bottom-5 left-6">
                     <p className="text-xs uppercase tracking-eyebrow text-gold">
                       {loc.neighborhood}
