@@ -1,34 +1,32 @@
 /** Single source of truth for homepage copy. Swap for final client copy. */
 
-// Placeholder photography, matched per section/dish to what its copy
-// describes. Each is a swap point: replace the URL with the real Hal's
-// photo of the same subject and nothing else changes. The hero ships
-// locally in /public.
-const UNSPLASH = (id: string) =>
-  `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&q=80&w=1600`;
-
+// Placeholder imagery, generated locally (scripts/generate-placeholders.py)
+// and matched per section/dish to what its copy describes. Each is a swap
+// point: drop the real Hal's photo of the same subject over the file in
+// /public/placeholders (or change the path here) and nothing else moves.
+// The hero ships real in /public.
 export const IMG = {
   hero: "/hero.jpg", // real Hal's bone-in ribeye + wine
 
   // Dishes — one placeholder per menu item, matched to its description.
-  ribeye: UNSPLASH("1546964124-0cce460f38ef"), // → bone-in ribeye, crosshatched crust
-  auPoivre: UNSPLASH("1544025162-d76694265947"), // → sliced filet with pan sauce
-  lobsterMac: UNSPLASH("1476224203421-9ac39bcb3327"), // → baked pasta, blistered cheese crust
-  redfish: UNSPLASH("1467003909585-2f8a72700288"), // → pan-finished Gulf fish, lemon butter
-  bananasFoster: UNSPLASH("1563805042-7684c019e1cb"), // → dessert over vanilla bean ice cream
-  openFlame: UNSPLASH("1558030006-450675393462"), // → cuts searing over open flame
+  ribeye: "/placeholders/ribeye.jpg", // → bone-in ribeye, crosshatched crust
+  auPoivre: "/placeholders/auPoivre.jpg", // → sliced filet with pan sauce
+  lobsterMac: "/placeholders/lobsterMac.jpg", // → baked pasta, blistered cheese crust
+  redfish: "/placeholders/redfish.jpg", // → pan-finished Gulf fish, lemon butter
+  bananasFoster: "/placeholders/bananasFoster.jpg", // → dessert over vanilla bean ice cream
+  openFlame: "/placeholders/openFlame.jpg", // → cuts searing over open flame
 
   // Rooms & atmosphere — one placeholder per section subject.
-  diningRoom: UNSPLASH("1517248135467-4c7edcad34c4"), // → the warm, low-lit dining room
-  liveMusic: UNSPLASH("1511671782779-c97d3d27a1d4"), // → the band playing downstairs
-  barCocktails: UNSPLASH("1514362545857-3bc16c4c7d1b"), // → drinks at the bar
-  openKitchen: UNSPLASH("1551218808-94e220e084d2"), // → chefs in the open kitchen
-  privateTable: UNSPLASH("1464366400600-7168b8af9bc3"), // → candle-lit private dining table
-  wine: UNSPLASH("1510812431401-41d2bd2722f3"), // → red wine, poured tableside
+  diningRoom: "/placeholders/diningRoom.jpg", // → the warm, low-lit dining room
+  liveMusic: "/placeholders/liveMusic.jpg", // → the band playing downstairs
+  barCocktails: "/placeholders/barCocktails.jpg", // → drinks at the bar
+  openKitchen: "/placeholders/openKitchen.jpg", // → chefs in the open kitchen
+  privateTable: "/placeholders/privateTable.jpg", // → candle-lit private dining table
+  wine: "/placeholders/wine.jpg", // → red wine, poured tableside
 
   // Locations — one room per city.
-  atlantaRoom: UNSPLASH("1555396273-367ea4eb4db5"), // → the original Buckhead room
-  nashvilleRoom: UNSPLASH("1559339352-11d035aa65de"), // → the new downtown Nashville room
+  atlantaRoom: "/placeholders/atlantaRoom.jpg", // → the original Buckhead room
+  nashvilleRoom: "/placeholders/nashvilleRoom.jpg", // → the new downtown Nashville room
 } as const;
 
 export const SITE = {
