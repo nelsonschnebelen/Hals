@@ -17,7 +17,7 @@ export function OurStory() {
               eyebrow="Our Story"
               title={
                 <>
-                  Thirty-five years of the{" "}
+                  Thirty-seven years of the{" "}
                   <em className="text-gold">same uncompromising</em> plate.
                 </>
               }
@@ -28,7 +28,7 @@ export function OurStory() {
                   Hal&rsquo;s opened in Buckhead in 1989 with a simple idea: a
                   great steakhouse should feel like a great evening — generous,
                   unhurried, and a little bit New Orleans. Decades later, the
-                  charcoal still glows in an open kitchen and the band still
+                  charcoal still glows in an open kitchen and live music still
                   plays most nights.
                 </p>
                 <p>

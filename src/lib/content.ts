@@ -18,7 +18,7 @@ export const IMG = {
 
   // Rooms & atmosphere — one placeholder per section subject.
   diningRoom: "/placeholders/diningRoom.jpg", // → the warm, low-lit dining room
-  liveMusic: "/placeholders/liveMusic.jpg", // → the band playing downstairs
+  liveMusic: "/placeholders/liveMusic.jpg", // → live music playing downstairs
   barCocktails: "/placeholders/barCocktails.jpg", // → drinks at the bar
   openKitchen: "/placeholders/openKitchen.jpg", // → chefs in the open kitchen
   privateTable: "/placeholders/privateTable.jpg", // → candle-lit private dining table
@@ -171,13 +171,23 @@ export const MENU_ITEMS = [
   },
 ] as const;
 
+/**
+ * Menu split by location, mirroring the current Hal's site.
+ * NOTE: both tabs currently show the same sample items — awaiting the real
+ * Atlanta & Nashville menus to populate. Swap `items` per location when ready.
+ */
+export const MENU_BY_LOCATION = [
+  { id: "atlanta", label: "Atlanta", items: MENU_ITEMS },
+  { id: "nashville", label: "Nashville", items: MENU_ITEMS },
+] as const;
+
 /** Gallery — three parallax columns; alts double as the shot list. */
 export const GALLERY = [
   { src: IMG.hero, alt: "Bone-in ribeye with a glass of red" },
   { src: IMG.diningRoom, alt: "The dining room at golden hour" },
   { src: IMG.barCocktails, alt: "Cocktails at the bar" },
   { src: IMG.openKitchen, alt: "The open kitchen at work" },
-  { src: IMG.liveMusic, alt: "The band, downstairs" },
+  { src: IMG.liveMusic, alt: "Live music, downstairs" },
   { src: IMG.openFlame, alt: "Seared over open flame" },
   { src: IMG.wine, alt: "Poured tableside" },
   { src: IMG.auPoivre, alt: "A board of slow-finished cuts" },

@@ -3,8 +3,8 @@ import { Reveal } from "@/components/ui/reveal";
 import { ImageReveal } from "@/components/ui/image-reveal";
 import { Parallax } from "@/components/ui/parallax";
 import { SectionHeading } from "@/components/ui/section-heading";
-import { MenuList } from "@/components/sections/menu-list";
-import { MENU_FEATURE, MENU_ITEMS, SITE } from "@/lib/content";
+import { MenuLocationTabs } from "@/components/sections/menu-location-tabs";
+import { MENU_FEATURE, MENU_BY_LOCATION, SITE } from "@/lib/content";
 
 export function Menu() {
   return (
@@ -35,7 +35,7 @@ export function Menu() {
             }
           />
 
-          <MenuList items={MENU_ITEMS} />
+          <MenuLocationTabs menus={MENU_BY_LOCATION} />
 
           <Reveal variant="up" delay={0.1}>
             <a

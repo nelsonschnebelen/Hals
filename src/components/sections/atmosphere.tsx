@@ -7,7 +7,7 @@ import { IMG } from "@/lib/content";
 
 /**
  * Atmosphere: two image planes drifting at different parallax rates — the
- * room behind, the band overlapping in front — beside the section copy.
+ * room behind, the live-music plane overlapping in front — beside the copy.
  */
 export function Atmosphere() {
   return (
@@ -28,7 +28,7 @@ export function Atmosphere() {
             <div className="absolute inset-0 bg-gradient-to-t from-ink/45 via-transparent to-transparent" />
           </ImageReveal>
 
-          {/* Placeholder → the band playing downstairs. Faster drift = nearer plane. */}
+          {/* Placeholder → live music downstairs. Faster drift = nearer plane. */}
           <ImageReveal
             className="absolute bottom-0 right-0 w-[52%] max-w-[290px] shadow-2xl shadow-ink/80 aspect-[4/5]"
             from="left"
@@ -59,7 +59,7 @@ export function Atmosphere() {
           />
           <Reveal variant="up" delay={0.12}>
             <p className="mt-8 max-w-prose text-cream/75">
-              Downstairs, the band plays and the open kitchen hums. Upstairs,
+              Downstairs, live music plays and the open kitchen hums. Upstairs,
               the patio opens to Buckhead&rsquo;s skyline. It&rsquo;s the warmth
               that&rsquo;s made Hal&rsquo;s the room Atlanta returns to — for
               anniversaries, for closing the deal, for an ordinary Tuesday that

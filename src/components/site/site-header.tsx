@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
+import { Logo } from "@/components/site/logo";
 import { NAV_LINKS } from "@/lib/content";
 
 export function SiteHeader() {
@@ -24,11 +25,8 @@ export function SiteHeader() {
       )}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5">
-        <a href="#top" className="font-serif text-xl tracking-wide text-cream">
-          HAL&rsquo;S
-          <span className="ml-2 hidden align-middle text-[10px] uppercase tracking-eyebrow text-gold sm:inline">
-            The Steakhouse
-          </span>
+        <a href="#top" aria-label="Hal's The Steakhouse — home">
+          <Logo />
         </a>
 
         <nav className="hidden items-center gap-7 lg:flex">
