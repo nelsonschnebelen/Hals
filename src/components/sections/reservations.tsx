@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { Reveal } from "@/components/ui/reveal";
+import { ReservationBooking } from "@/components/sections/reservation-booking";
 import { EASE } from "@/lib/animations";
 import { SITE } from "@/lib/content";
 
@@ -70,6 +71,8 @@ export function Reservations() {
               </a>
             </div>
           </Reveal>
+
+          <ReservationBooking />
         </motion.div>
       </div>
     </section>
