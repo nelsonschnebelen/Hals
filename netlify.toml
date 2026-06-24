@@ -1,0 +1,11 @@
+# Netlify deploy config for the Hal's site (Next.js static export).
+# Connect this repo at app.netlify.com → "Add new site" → "Import from GitHub"
+# and pick the `main` branch. Netlify reads this file automatically.
+
+[build]
+  # $URL is Netlify's site URL, used for metadataBase / OG tags.
+  command = "NEXT_PUBLIC_SITE_URL=$URL npm run build"
+  publish = "out"
+
+[build.environment]
+  NODE_VERSION = "20"
