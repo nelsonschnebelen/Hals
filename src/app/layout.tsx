@@ -17,7 +17,10 @@ const inter = Inter({
   display: "swap",
 });
 
+// On Pages this is the full base_url incl. subpath (e.g. https://host/hals),
+// so metadata image paths like "/og.jpg" resolve to /hals/og.jpg.
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://halsthesteakhouse.com";
+const ogImage = "/og.jpg";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -32,14 +35,14 @@ export const metadata: Metadata = {
     description: "A Buckhead institution since 1989. Now in Nashville.",
     url: siteUrl,
     siteName: "Hal's The Steakhouse",
-    images: [{ url: "/api/og", width: 1200, height: 630 }],
+    images: [{ url: ogImage, width: 1200, height: 630 }],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: "Hal's The Steakhouse",
     description: "A Buckhead institution since 1989. Now in Nashville.",
-    images: ["/api/og"],
+    images: [ogImage],
   },
 };
 
