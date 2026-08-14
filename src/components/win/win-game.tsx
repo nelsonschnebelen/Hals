@@ -1,8 +1,11 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import Link from "next/link";
 import { Logo } from "@/components/site/logo";
+
+/** Where the logo and footer link point. Defaults to this site's root; the
+ *  standalone (game-only) deploy sets it to the main Hal's site instead. */
+const HOME_URL = process.env.NEXT_PUBLIC_HOME_URL || "/";
 
 /** The four offers, equal 25% odds each. */
 const PRIZES = [
@@ -128,9 +131,9 @@ export function WinGame() {
         }}
       />
 
-      <Link href="/" aria-label="Hal's The Steakhouse — home">
+      <a href={HOME_URL} aria-label="Hal's The Steakhouse — home">
         <Logo />
-      </Link>
+      </a>
 
       <p className="eyebrow mt-8">A toast, on us</p>
       <h1 className="mt-3 font-serif text-4xl sm:text-5xl">
@@ -203,12 +206,12 @@ export function WinGame() {
           redeem drink offers. Not valid with other offers, on gift cards, tax,
           or gratuity. No cash value. Offer expires 30 days after claim.
         </p>
-        <Link
-          href="/"
+        <a
+          href={HOME_URL}
           className="mt-4 inline-block font-sans text-xs uppercase tracking-eyebrow text-gold/70 transition-colors hover:text-gold"
         >
           halsthesteakhouse.com
-        </Link>
+        </a>
       </div>
     </main>
   );
