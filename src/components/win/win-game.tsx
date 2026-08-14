@@ -42,6 +42,11 @@ const STORAGE_KEY = "hals-win-claim-v1";
 const CLAIM_WINDOW_DAYS = 30;
 const POUR_MS = 3200;
 
+/** Review/demo mode: skip persistence entirely so every refresh deals a fresh
+ *  game. Build with NEXT_PUBLIC_REPLAY=1 while stakeholders are reviewing;
+ *  omit it for the launch build so each guest's prize locks to their device. */
+const REPLAY_MODE = process.env.NEXT_PUBLIC_REPLAY === "1";
+
 function drawPrize(): Prize {
   // 4 divides 2^32, so the modulo is exactly uniform — true 25% each.
   const buf = new Uint32Array(1);
@@ -82,7 +87,7 @@ export function WinGame() {
   // Returning guests skip straight to their existing (unexpired) prize —
   // the draw happens once per device, not once per page load.
   useEffect(() => {
-    const existing = loadClaim();
+    const existing = REPLAY_MODE ? null : loadClaim();
     if (existing) {
       setClaim(existing);
       setStage("revealed");
@@ -100,10 +105,12 @@ export function WinGame() {
       claimedAt: Date.now(),
     };
     // Persist before the animation so a mid-pour refresh keeps the same result.
-    try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
-    } catch {
-      // Private browsing: the game still works for this page view.
+    if (!REPLAY_MODE) {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
+      } catch {
+        // Private browsing: the game still works for this page view.
+      }
     }
     setClaim(next);
     setStage("pouring");
