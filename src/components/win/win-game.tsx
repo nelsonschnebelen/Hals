@@ -4,30 +4,25 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { Logo } from "@/components/site/logo";
 
-/** The four offers, equal 25% odds each. `letter` prefixes the claim code so
- *  staff can sanity-check that a code matches the prize on screen. */
+/** The four offers, equal 25% odds each. */
 const PRIZES = [
   {
     id: "dessert",
-    letter: "D",
     name: "A Free Dessert",
     detail: "Your pick from the dessert menu — soufflé, crème brûlée, and friends.",
   },
   {
     id: "drink",
-    letter: "B",
     name: "A Free Drink",
     detail: "A glass of wine, a classic cocktail, or anything from the bar.",
   },
   {
     id: "appetizer",
-    letter: "A",
     name: "A Free Appetizer",
     detail: "Start the evening on the house.",
   },
   {
     id: "twenty",
-    letter: "S",
     name: "$20 Off $100",
     detail: "Twenty dollars off any check of one hundred dollars or more.",
   },
@@ -37,16 +32,12 @@ type Prize = (typeof PRIZES)[number];
 
 type Claim = {
   prizeId: Prize["id"];
-  code: string;
   claimedAt: number;
 };
 
 const STORAGE_KEY = "hals-win-claim-v1";
 const CLAIM_WINDOW_DAYS = 30;
 const POUR_MS = 3200;
-
-/** Unambiguous alphabet: no 0/O, 1/I/L. */
-const CODE_ALPHABET = "23456789ABCDEFGHJKMNPQRSTUVWXYZ";
 
 function drawPrize(): Prize {
   // 4 divides 2^32, so the modulo is exactly uniform — true 25% each.
@@ -55,21 +46,12 @@ function drawPrize(): Prize {
   return PRIZES[buf[0] % 4];
 }
 
-function makeCode(prize: Prize): string {
-  const buf = new Uint8Array(5);
-  crypto.getRandomValues(buf);
-  let tail = "";
-  for (let i = 0; i < buf.length; i++)
-    tail += CODE_ALPHABET[buf[i] % CODE_ALPHABET.length];
-  return `HALS-${prize.letter}${tail}`;
-}
-
 function loadClaim(): Claim | null {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (!raw) return null;
     const claim = JSON.parse(raw) as Claim;
-    if (!PRIZES.some((p) => p.id === claim.prizeId) || !claim.code) return null;
+    if (!PRIZES.some((p) => p.id === claim.prizeId)) return null;
     const expired =
       Date.now() - claim.claimedAt > CLAIM_WINDOW_DAYS * 24 * 60 * 60 * 1000;
     return expired ? null : claim;
@@ -112,7 +94,6 @@ export function WinGame() {
     const prize = drawPrize();
     const next: Claim = {
       prizeId: prize.id,
-      code: makeCode(prize),
       claimedAt: Date.now(),
     };
     // Persist before the animation so a mid-pour refresh keeps the same result.
@@ -204,15 +185,12 @@ export function WinGame() {
               {prize.detail}
             </p>
             <div className="mx-auto mt-6 inline-block border border-dashed border-gold/50 px-6 py-3">
-              <p className="font-sans text-[0.65rem] uppercase tracking-eyebrow text-cream/50">
-                Claim code
-              </p>
-              <p className="mt-1 font-sans text-xl tracking-[0.2em] text-gold">
-                {claim.code}
+              <p className="font-sans text-sm uppercase tracking-eyebrow text-gold">
+                Present to your server
               </p>
             </div>
             <p className="mt-5 font-sans text-xs text-cream/60">
-              Valid through {expiryDate(claim)} · Present to your server
+              Valid through {expiryDate(claim)}
             </p>
           </div>
         )}
