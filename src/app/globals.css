@@ -102,7 +102,7 @@ html.lenis body {
 
 /* /win pour: wine sits below the bowl clip until .wine-fill-up slides it home. */
 .wine-fill {
-  transform: translateY(90px);
+  transform: translateY(175px);
   transition: transform 2.8s cubic-bezier(0.33, 1, 0.68, 1);
 }
 .wine-fill-up {

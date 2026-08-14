@@ -153,9 +153,27 @@ export function WinGame() {
           : "Every pour wins one of four offers — a free dessert, a free drink, a free appetizer, or $20 off $100. Tap to fill your glass."}
       </p>
 
-      {/* The glass */}
-      <div className="relative mt-6">
+      {/* The glass, with the prize revealed inside the wine */}
+      <div className="relative mt-4">
         <WineGlass filled={filled} pouring={stage === "pouring"} />
+        <div
+          aria-live="polite"
+          className={`absolute inset-x-0 top-[34%] flex flex-col items-center px-10 transition-opacity duration-1000 ${
+            stage === "revealed" ? "opacity-100" : "pointer-events-none opacity-0"
+          }`}
+          style={{ textShadow: "0 1px 12px rgba(10,8,7,0.55)" }}
+        >
+          {stage === "revealed" && prize && (
+            <>
+              <p className="font-sans text-[0.65rem] uppercase tracking-eyebrow text-cream/80">
+                You&apos;ve won
+              </p>
+              <p className="mt-2 font-serif text-3xl leading-tight text-cream sm:text-4xl">
+                {prize.name}
+              </p>
+            </>
+          )}
+        </div>
       </div>
 
       {stage !== "revealed" && (
@@ -169,33 +187,28 @@ export function WinGame() {
         </button>
       )}
 
-      {/* Prize card */}
+      {/* Redemption details, below the glass */}
       <div
-        aria-live="polite"
-        className={`mt-8 w-full max-w-md transition-all duration-700 ${
+        className={`mt-6 w-full max-w-md transition-all duration-700 delay-300 ${
           stage === "revealed"
             ? "translate-y-0 opacity-100"
-            : "pointer-events-none translate-y-4 opacity-0"
+            : "pointer-events-none hidden translate-y-4 opacity-0"
         }`}
       >
         {stage === "revealed" && claim && prize && (
-          <div className="border border-gold/40 bg-ink-800/80 px-8 py-8 backdrop-blur-sm">
-            <p className="eyebrow">You&apos;ve won</p>
-            <p className="mt-3 font-serif text-3xl text-cream sm:text-4xl">
-              {prize.name}
-            </p>
-            <p className="mt-3 font-sans text-sm leading-relaxed text-cream/70">
+          <>
+            <p className="font-sans text-sm leading-relaxed text-cream/70">
               {prize.detail}
             </p>
-            <div className="mx-auto mt-6 inline-block border border-dashed border-gold/50 px-6 py-3">
+            <div className="mt-5 inline-block border border-dashed border-gold/50 px-6 py-3">
               <p className="font-sans text-sm uppercase tracking-eyebrow text-gold">
                 Present to your server
               </p>
             </div>
-            <p className="mt-5 font-sans text-xs text-cream/60">
+            <p className="mt-4 font-sans text-xs text-cream/60">
               Valid through {expiryDate(claim)}
             </p>
-          </div>
+          </>
         )}
       </div>
 
@@ -225,14 +238,14 @@ export function WinGame() {
 function WineGlass({ filled, pouring }: { filled: boolean; pouring: boolean }) {
   return (
     <svg
-      viewBox="0 0 200 264"
-      className="h-64 w-auto sm:h-72"
+      viewBox="0 0 300 262"
+      className="h-80 w-auto max-w-full sm:h-96"
       role="img"
       aria-label={filled ? "A glass of red wine, poured" : "An empty wine glass"}
     >
       <defs>
         <clipPath id="bowl-clip">
-          <path d="M52 12 C52 88 68 122 100 128 C132 122 148 88 148 12 Z" />
+          <path d="M32 10 C32 130 74 196 150 208 C226 196 268 130 268 10 Z" />
         </clipPath>
         <linearGradient id="wine-body" x1="0" y1="0" x2="0" y2="1">
           <stop offset="0" stopColor="#8c1f32" />
@@ -242,10 +255,10 @@ function WineGlass({ filled, pouring }: { filled: boolean; pouring: boolean }) {
 
       {/* Pour stream (only while pouring) */}
       <rect
-        x="97.5"
+        x="147"
         y="-8"
-        width="5"
-        height="72"
+        width="6"
+        height="80"
         fill="#8c1f32"
         opacity={pouring ? 0.9 : 0}
         className="transition-opacity duration-300"
@@ -255,44 +268,36 @@ function WineGlass({ filled, pouring }: { filled: boolean; pouring: boolean }) {
           offset downward (out of the bowl) until `filled`. */}
       <g clipPath="url(#bowl-clip)">
         <g className={`wine-fill ${filled ? "wine-fill-up" : ""}`}>
-          <rect x="40" y="56" width="120" height="90" fill="url(#wine-body)" />
-          <ellipse cx="100" cy="56" rx="45" ry="6" fill="#a62c40" />
-          <ellipse cx="86" cy="56" rx="14" ry="2.5" fill="#c04f60" opacity="0.6" />
+          <rect x="20" y="58" width="260" height="160" fill="url(#wine-body)" />
+          <ellipse cx="150" cy="58" rx="106" ry="9" fill="#a62c40" />
+          <ellipse cx="116" cy="58" rx="30" ry="3.5" fill="#c04f60" opacity="0.6" />
         </g>
       </g>
 
-      {/* Glass outline (open rim), stem, foot */}
+      {/* Glass outline (open rim); stem runs off the bottom edge */}
       <path
-        d="M52 12 C52 88 68 122 100 128 C132 122 148 88 148 12"
+        d="M32 10 C32 130 74 196 150 208 C226 196 268 130 268 10"
         fill="none"
         stroke="#c5a572"
-        strokeWidth="2.5"
+        strokeWidth="3"
         strokeLinecap="round"
       />
       <line
-        x1="100"
-        y1="128"
-        x2="100"
-        y2="228"
+        x1="150"
+        y1="208"
+        x2="150"
+        y2="262"
         stroke="#c5a572"
-        strokeWidth="2.5"
-        strokeLinecap="round"
-      />
-      <path
-        d="M62 240 Q100 226 138 240"
-        fill="none"
-        stroke="#c5a572"
-        strokeWidth="2.5"
-        strokeLinecap="round"
+        strokeWidth="3"
       />
       {/* Bowl highlight */}
       <path
-        d="M62 24 C62 62 68 90 78 106"
+        d="M48 26 C48 96 62 142 84 172"
         fill="none"
         stroke="#f5f1ea"
-        strokeWidth="1.5"
+        strokeWidth="2"
         strokeLinecap="round"
-        opacity="0.25"
+        opacity="0.22"
       />
     </svg>
   );
