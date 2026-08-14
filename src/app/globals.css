@@ -100,11 +100,32 @@ html.lenis body {
   }
 }
 
+/* /win pour: wine sits below the bowl clip until .wine-fill-up slides it home. */
+.wine-fill {
+  transform: translateY(90px);
+  transition: transform 2.8s cubic-bezier(0.33, 1, 0.68, 1);
+}
+.wine-fill-up {
+  transform: translateY(0);
+  animation: wine-settle 1.2s ease-in-out 2.8s;
+}
+@keyframes wine-settle {
+  0%, 100% { transform: translateY(0); }
+  35% { transform: translateY(3px); }
+  70% { transform: translateY(-1.5px); }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .marquee-track,
   .scroll-dot,
   .grain-overlay {
+    animation: none;
+  }
+  .wine-fill {
+    transition-duration: 0.3s;
+  }
+  .wine-fill-up {
     animation: none;
   }
 }
