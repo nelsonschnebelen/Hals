@@ -68,15 +68,6 @@ function loadClaim(): Claim | null {
   }
 }
 
-function expiryDate(claim: Claim): string {
-  const d = new Date(claim.claimedAt + CLAIM_WINDOW_DAYS * 24 * 60 * 60 * 1000);
-  return d.toLocaleDateString("en-US", {
-    month: "long",
-    day: "numeric",
-    year: "numeric",
-  });
-}
-
 type Stage = "idle" | "pouring" | "revealed";
 
 export function WinGame() {
@@ -212,9 +203,6 @@ export function WinGame() {
                 Present to your server
               </p>
             </div>
-            <p className="mt-4 font-sans text-xs text-cream/60">
-              Valid through {expiryDate(claim)}
-            </p>
           </>
         )}
       </div>
