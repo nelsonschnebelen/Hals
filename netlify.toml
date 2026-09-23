@@ -3,10 +3,14 @@
 # and pick the `main` branch. Netlify reads this file automatically.
 
 [build]
-  # One repo, two site flavors — see scripts/netlify-build.sh. A site with
-  # PROMO_ONLY=1 in its Netlify env vars serves the /win game at its root.
+  # One repo, two site flavors — see scripts/netlify-build.sh.
   command = "bash scripts/netlify-build.sh"
   publish = "out"
 
 [build.environment]
   NODE_VERSION = "20"
+  # Current default: promotion-only (the /win game at the site root; main
+  # site hidden) in review mode (refresh to replay). For launch, delete
+  # NEXT_PUBLIC_REPLAY; to bring the full site back, delete PROMO_ONLY.
+  PROMO_ONLY = "1"
+  NEXT_PUBLIC_REPLAY = "1"
