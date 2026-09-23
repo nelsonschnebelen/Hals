@@ -7,27 +7,33 @@ import { Logo } from "@/components/site/logo";
  *  standalone (game-only) deploy sets it to the main Hal's site instead. */
 const HOME_URL = process.env.NEXT_PUBLIC_HOME_URL || "/";
 
-/** The four offers, equal 25% odds each. */
+/** The four offers, equal 25% odds each. `claimUrl` is the Dishio opt-in form
+ *  for that prize — the guest fills it out to receive their coupon.
+ *  TODO: paste the real Dishio form link for each prize (placeholders below). */
 const PRIZES = [
   {
     id: "dessert",
     name: "A Free Dessert",
-    detail: "Your pick from the dessert menu — soufflé, crème brûlée, and friends.",
+    cta: "Claim your dessert",
+    claimUrl: "#dessert-form",
   },
   {
     id: "drink",
     name: "A Free Drink",
-    detail: "A glass of wine, a classic cocktail, or anything from the bar.",
+    cta: "Claim your drink",
+    claimUrl: "#drink-form",
   },
   {
     id: "appetizer",
     name: "A Free Appetizer",
-    detail: "Start the evening on the house.",
+    cta: "Claim your appetizer",
+    claimUrl: "#appetizer-form",
   },
   {
     id: "twenty",
     name: "$20 Off $100",
-    detail: "Twenty dollars off any check of one hundred dollars or more.",
+    cta: "Claim your promotion",
+    claimUrl: "#promotion-form",
   },
 ] as const;
 
@@ -130,7 +136,7 @@ export function WinGame() {
       />
 
       <a href={HOME_URL} aria-label="Hal's The Steakhouse — home">
-        <Logo />
+        <Logo className="!h-16 sm:!h-20" />
       </a>
 
       <p className="eyebrow mt-8">A toast, on us</p>
@@ -147,8 +153,8 @@ export function WinGame() {
       </h1>
       <p className="mt-4 max-w-md font-sans text-sm leading-relaxed text-cream/70">
         {stage === "revealed"
-          ? "Show this screen to your server on your next visit."
-          : "Every pour wins one of four offers — a free dessert, a free drink, a free appetizer, or $20 off $100. Tap to fill your glass."}
+          ? "Claim below and we'll send your coupon."
+          : "Every pour wins one of four offers — a free drink, a free dessert, a free appetizer, or $20 off $100. Tap to fill your glass."}
       </p>
 
       {/* The glass, with the prize revealed inside the wine */}
@@ -185,7 +191,7 @@ export function WinGame() {
         </button>
       )}
 
-      {/* Redemption details, below the glass */}
+      {/* Claim CTA, below the glass — leads to the prize's opt-in coupon form */}
       <div
         className={`mt-6 w-full max-w-md transition-all duration-700 delay-300 ${
           stage === "revealed"
@@ -194,25 +200,22 @@ export function WinGame() {
         }`}
       >
         {stage === "revealed" && claim && prize && (
-          <>
-            <p className="font-sans text-sm leading-relaxed text-cream/70">
-              {prize.detail}
-            </p>
-            <div className="mt-5 inline-block border border-dashed border-gold/50 px-6 py-3">
-              <p className="font-sans text-sm uppercase tracking-eyebrow text-gold">
-                Present to your server
-              </p>
-            </div>
-          </>
+          <a
+            href={prize.claimUrl}
+            className="inline-block bg-gold px-12 py-4 font-sans text-sm uppercase tracking-eyebrow text-ink transition-colors duration-300 hover:bg-gold-dark"
+          >
+            {prize.cta}
+          </a>
         )}
       </div>
 
       <div className="mt-auto pt-10">
         <p className="mx-auto max-w-md font-sans text-[0.65rem] leading-relaxed text-cream/40">
           *Offer value up to $20. One offer per guest per visit. Dine-in only at
-          Hal&apos;s The Steakhouse, Atlanta or Nashville. Guests must be 21+ to
-          redeem drink offers. Not valid with other offers, on gift cards, tax,
-          or gratuity. No cash value. Offer expires 30 days after claim.
+          Hal&apos;s The Steakhouse, Nashville. Guests must be 21+ to redeem
+          drink offers. Not valid with other offers, on gift cards, tax, or
+          gratuity. No cash value. Promotion runs through October 31; coupons
+          are redeemable for 30 days from claim.
         </p>
         <a
           href={HOME_URL}
