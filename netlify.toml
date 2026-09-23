@@ -3,8 +3,9 @@
 # and pick the `main` branch. Netlify reads this file automatically.
 
 [build]
-  # $URL is Netlify's site URL, used for metadataBase / OG tags.
-  command = "NEXT_PUBLIC_SITE_URL=$URL npm run build"
+  # One repo, two site flavors — see scripts/netlify-build.sh. A site with
+  # PROMO_ONLY=1 in its Netlify env vars serves the /win game at its root.
+  command = "bash scripts/netlify-build.sh"
   publish = "out"
 
 [build.environment]
