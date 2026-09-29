@@ -16,19 +16,19 @@ const PRIZES = [
     id: "dessert",
     name: "A Free Dessert",
     cta: "Claim your dessert",
-    claimUrl: `${DISHIO_FORM}?funnelId=cmudmbpmy00015pb6hbgiuhax`,
+    claimUrl: `${DISHIO_FORM}?funnelId=cmumr5muh000y10dnqxe3zcjp`,
   },
   {
     id: "drink",
     name: "A Free Drink",
     cta: "Claim your drink",
-    claimUrl: `${DISHIO_FORM}?funnelId=cmumr9sbq001310dna6drf7iy`,
+    claimUrl: `${DISHIO_FORM}?funnelId=cmudmbpmy00015pb6hbgiuhax`,
   },
   {
     id: "appetizer",
     name: "A Free Appetizer",
     cta: "Claim your appetizer",
-    claimUrl: `${DISHIO_FORM}?funnelId=cmumr5muh000y10dnqxe3zcjp`,
+    claimUrl: `${DISHIO_FORM}?funnelId=cmumr9sbq001310dna6drf7iy`,
   },
 ] as const;
 
