@@ -7,9 +7,8 @@ import { Logo } from "@/components/site/logo";
  *  standalone (game-only) deploy sets it to the main Hal's site instead. */
 const HOME_URL = process.env.NEXT_PUBLIC_HOME_URL || "/";
 
-/** The four offers, equal 25% odds each. `claimUrl` is the Dishio opt-in form
- *  for that prize — the guest fills it out to receive their coupon.
- *  TODO: still waiting on the Dishio link for the $20-off promotion. */
+/** The three offers, equal odds each. `claimUrl` is the Dishio opt-in form
+ *  for that prize — the guest fills it out to receive their coupon. */
 const DISHIO_FORM =
   "https://dish.io/hals-the-steakhouse/form-first-coupon-offer-1779306504669";
 const PRIZES = [
@@ -31,12 +30,6 @@ const PRIZES = [
     cta: "Claim your appetizer",
     claimUrl: `${DISHIO_FORM}?funnelId=cmumr5muh000y10dnqxe3zcjp`,
   },
-  {
-    id: "twenty",
-    name: "$20 Off $100",
-    cta: "Claim your promotion",
-    claimUrl: "#promotion-form",
-  },
 ] as const;
 
 type Prize = (typeof PRIZES)[number];
@@ -56,10 +49,15 @@ const POUR_MS = 3200;
 const REPLAY_MODE = process.env.NEXT_PUBLIC_REPLAY === "1";
 
 function drawPrize(): Prize {
-  // 4 divides 2^32, so the modulo is exactly uniform — true 25% each.
+  // Rejection sampling keeps the draw exactly uniform across the three
+  // prizes (a bare modulo of a 32-bit value would carry a 2^-32 bias).
+  const n = PRIZES.length;
+  const limit = Math.floor(0x100000000 / n) * n;
   const buf = new Uint32Array(1);
-  crypto.getRandomValues(buf);
-  return PRIZES[buf[0] % 4];
+  do {
+    crypto.getRandomValues(buf);
+  } while (buf[0] >= limit);
+  return PRIZES[buf[0] % n];
 }
 
 function loadClaim(): Claim | null {
@@ -156,7 +154,7 @@ export function WinGame() {
       <p className="mt-4 max-w-md font-sans text-sm leading-relaxed text-cream/70">
         {stage === "revealed"
           ? "Claim below and we'll send your coupon."
-          : "Every pour wins one of four offers — a free drink, a free dessert, a free appetizer, or $20 off $100. Tap to fill your glass."}
+          : "Every pour wins one of three offers — a free drink, a free dessert, or a free appetizer. Tap to fill your glass."}
       </p>
 
       {/* The glass, with the prize revealed inside the wine */}
