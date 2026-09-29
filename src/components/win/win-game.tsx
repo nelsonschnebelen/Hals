@@ -9,25 +9,27 @@ const HOME_URL = process.env.NEXT_PUBLIC_HOME_URL || "/";
 
 /** The four offers, equal 25% odds each. `claimUrl` is the Dishio opt-in form
  *  for that prize — the guest fills it out to receive their coupon.
- *  TODO: paste the real Dishio form link for each prize (placeholders below). */
+ *  TODO: still waiting on the Dishio link for the $20-off promotion. */
+const DISHIO_FORM =
+  "https://dish.io/hals-the-steakhouse/form-first-coupon-offer-1779306504669";
 const PRIZES = [
   {
     id: "dessert",
     name: "A Free Dessert",
     cta: "Claim your dessert",
-    claimUrl: "#dessert-form",
+    claimUrl: `${DISHIO_FORM}?funnelId=cmudmbpmy00015pb6hbgiuhax`,
   },
   {
     id: "drink",
     name: "A Free Drink",
     cta: "Claim your drink",
-    claimUrl: "#drink-form",
+    claimUrl: `${DISHIO_FORM}?funnelId=cmumr9sbq001310dna6drf7iy`,
   },
   {
     id: "appetizer",
     name: "A Free Appetizer",
     cta: "Claim your appetizer",
-    claimUrl: "#appetizer-form",
+    claimUrl: `${DISHIO_FORM}?funnelId=cmumr5muh000y10dnqxe3zcjp`,
   },
   {
     id: "twenty",
