@@ -12,7 +12,7 @@ export function Locations() {
       <div className="mx-auto max-w-7xl px-6">
         <div className="mb-16 flex flex-wrap items-end justify-between gap-6">
           <SectionHeading
-            index="02"
+            index="06"
             eyebrow="Visit Us"
             title={
               <>

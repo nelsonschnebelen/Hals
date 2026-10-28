@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Playfair_Display, Inter } from "next/font/google";
 import "./globals.css";
 import { SmoothScroll } from "@/components/providers/smooth-scroll";
-import { Grain } from "@/components/ui/grain";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -55,7 +54,6 @@ export default function RootLayout({
     <html lang="en" className={`${playfair.variable} ${inter.variable}`}>
       <body className="bg-ink text-cream antialiased">
         <SmoothScroll>{children}</SmoothScroll>
-        <Grain />
       </body>
     </html>
   );

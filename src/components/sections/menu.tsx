@@ -26,7 +26,7 @@ export function Menu() {
 
         <div>
           <SectionHeading
-            index="04"
+            index="02"
             eyebrow="The Menu"
             title={
               <>

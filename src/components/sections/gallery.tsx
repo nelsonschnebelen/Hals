@@ -43,7 +43,7 @@ export function Gallery() {
       <div className="mx-auto max-w-7xl px-6">
         <div className="mb-16 flex flex-wrap items-end justify-between gap-6">
           <SectionHeading
-            index="05"
+            index="04"
             eyebrow="The Experience"
             title={
               <>

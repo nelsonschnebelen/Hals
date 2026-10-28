@@ -14,7 +14,7 @@ export function PrivateDining() {
       <div className="mx-auto grid max-w-7xl items-center gap-16 px-6 lg:grid-cols-2 lg:gap-20">
         <div className="lg:order-2">
           <SectionHeading
-            index="06"
+            index="05"
             eyebrow="Private Dining"
             title={
               <>

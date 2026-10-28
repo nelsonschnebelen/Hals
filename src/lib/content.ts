@@ -40,12 +40,10 @@ export const SITE = {
 } as const;
 
 export const NAV_LINKS = [
-  { label: "Our Story", href: "#story" },
-  { label: "Atmosphere", href: "#atmosphere" },
   { label: "Menu", href: "#menu" },
-  { label: "Gallery", href: "#gallery" },
+  { label: "The Rooms", href: "#atmosphere" },
   { label: "Private Dining", href: "#private" },
-  { label: "Locations", href: "#locations" },
+  { label: "Visit", href: "#locations" },
 ] as const;
 
 export const STATS = [
@@ -407,9 +405,10 @@ export const PRESS = [
 
 export const FOOTER_LINKS = [
   { label: "Our Story", href: "#story" },
-  { label: "Atmosphere", href: "#atmosphere" },
   { label: "Menu", href: "#menu" },
+  { label: "The Rooms", href: "#atmosphere" },
   { label: "Gallery", href: "#gallery" },
   { label: "Private Dining", href: "#private" },
-  { label: "Locations", href: "#locations" },
+  { label: "Visit", href: "#locations" },
+  { label: "Before You Visit", href: "#visit-info" },
 ] as const;
