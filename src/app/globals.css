@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 :root {
-  --background: #0a0807;
-  --foreground: #f5f1ea;
+  --background: #0b0a09;
+  --foreground: #f3efe6;
 }
 
 html {
@@ -14,7 +14,7 @@ html {
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: var(--font-inter), system-ui, sans-serif;
+  font-family: var(--font-archivo), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
@@ -33,51 +33,20 @@ html.lenis body {
     text-wrap: balance;
   }
   .eyebrow {
-    @apply font-sans uppercase tracking-eyebrow text-xs text-gold;
+    @apply font-sans uppercase tracking-eyebrow text-[11px] text-gold;
   }
   .hairline {
     @apply h-px w-16 bg-gold/70;
   }
-}
-
-::selection {
-  background: #c5a572;
-  color: #0a0807;
-}
-
-/* Kinetic marquee. */
-@keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-.marquee-track { animation: marquee 34s linear infinite; }
-
-/* Scroll cue. */
-@keyframes scroll-dot {
-  0% { transform: translateY(-120%); }
-  100% { transform: translateY(360%); }
-}
-.scroll-dot { animation: scroll-dot 2.2s cubic-bezier(0.76, 0, 0.24, 1) infinite; }
-
-/* Filmic grain — a fixed, subtle noise wash for depth. The noise tile is
-   generated at runtime by <Grain /> (a canvas, not an asset). */
-.grain-overlay {
-  position: fixed;
-  inset: -60%;
-  z-index: 70;
-  pointer-events: none;
-  opacity: 0.05;
-  background-repeat: repeat;
-  animation: grain 0.6s steps(4) infinite;
-}
-@keyframes grain {
-  0%, 100% { transform: translate(0, 0); }
-  25% { transform: translate(-3%, 2%); }
-  50% { transform: translate(2%, -3%); }
-  75% { transform: translate(-2%, -2%); }
-}
-
-@layer utilities {
+  /* Condensed display smash — the Noir signature. */
+  .smash {
+    @apply font-display uppercase leading-[0.82] tracking-[0.005em];
+  }
+  /* Outlined display type (stroke only). */
+  .text-outline {
+    -webkit-text-stroke: 1.5px rgba(243, 239, 230, 0.5);
+    color: transparent;
+  }
   /* Animated underline for nav + text links. */
   .link-underline {
     position: relative;
@@ -100,6 +69,25 @@ html.lenis body {
   }
 }
 
+::selection {
+  background: #e2662e;
+  color: #0b0a09;
+}
+
+/* Kinetic marquee. */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.marquee-track { animation: marquee 34s linear infinite; }
+
+/* Scroll cue. */
+@keyframes scroll-dot {
+  0% { transform: translateY(-120%); }
+  100% { transform: translateY(360%); }
+}
+.scroll-dot { animation: scroll-dot 2.2s cubic-bezier(0.76, 0, 0.24, 1) infinite; }
+
 /* /win pour: wine sits below the bowl clip until .wine-fill-up slides it home. */
 .wine-fill {
   transform: translateY(175px);
@@ -118,8 +106,7 @@ html.lenis body {
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .marquee-track,
-  .scroll-dot,
-  .grain-overlay {
+  .scroll-dot {
     animation: none;
   }
   .wine-fill {

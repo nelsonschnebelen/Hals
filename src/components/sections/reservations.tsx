@@ -31,11 +31,11 @@ export function Reservations() {
             <p className="eyebrow mb-10 text-center">Reservations</p>
           </Reveal>
 
-          <h2 className="text-center font-serif text-[clamp(3.25rem,11vw,9.5rem)] leading-[0.96] tracking-[-0.02em]">
+          <h2 className="smash text-center text-[clamp(3rem,10.5vw,9rem)]">
             {LINES.map((line, i) => (
               <span key={line} className="block overflow-hidden">
                 <motion.span
-                  className={`block ${i === 1 ? "italic text-gold" : ""}`}
+                  className={`block ${i === 1 ? "text-gold" : ""}`}
                   initial={reduce ? false : { y: "110%" }}
                   whileInView={{ y: 0 }}
                   viewport={{ once: true, amount: 0.6 }}

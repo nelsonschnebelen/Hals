@@ -12,26 +12,34 @@ const config: Config = {
         background: "var(--background)",
         foreground: "var(--foreground)",
         ink: {
-          DEFAULT: "#0a0807",
-          800: "#15110d",
-          700: "#1e1813",
+          DEFAULT: "#0b0a09",
+          800: "#141210",
+          700: "#1d1a17",
         },
+        // "gold" kept as the accent token name; value is the Noir ember so all
+        // existing accent classes (text-gold/bg-gold/border-gold) re-skin at once.
         gold: {
-          DEFAULT: "#c5a572",
-          soft: "#cbbfa8",
-          dark: "#9c7f4f",
+          DEFAULT: "#e2662e",
+          soft: "#f08952",
+          dark: "#b84a1c",
         },
-        cream: "#f5f1ea",
+        ember: {
+          DEFAULT: "#e2662e",
+          soft: "#f08952",
+          dark: "#b84a1c",
+        },
+        cream: "#f3efe6",
       },
       fontFamily: {
-        serif: ["var(--font-playfair)", "Georgia", "serif"],
-        sans: ["var(--font-inter)", "system-ui", "sans-serif"],
+        display: ["var(--font-anton)", "Impact", "Haettenschweiler", "sans-serif"],
+        serif: ["var(--font-fraunces)", "Georgia", "serif"],
+        sans: ["var(--font-archivo)", "system-ui", "sans-serif"],
       },
       letterSpacing: {
-        eyebrow: "0.35em",
+        eyebrow: "0.3em",
       },
       maxWidth: {
-        prose: "65ch",
+        prose: "62ch",
       },
     },
   },

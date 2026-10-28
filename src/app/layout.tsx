@@ -1,23 +1,28 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Inter } from "next/font/google";
+import { Anton, Archivo, Fraunces } from "next/font/google";
 import "./globals.css";
 import { SmoothScroll } from "@/components/providers/smooth-scroll";
 
-const playfair = Playfair_Display({
+// Noir type system: Anton (condensed display), Archivo (grotesque UI/body),
+// Fraunces (serif italic accents).
+const anton = Anton({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-anton",
+  display: "swap",
+});
+const archivo = Archivo({
+  subsets: ["latin"],
+  variable: "--font-archivo",
+  display: "swap",
+});
+const fraunces = Fraunces({
   subsets: ["latin"],
   style: ["normal", "italic"],
-  variable: "--font-playfair",
+  variable: "--font-fraunces",
   display: "swap",
 });
 
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
-});
-
-// On Pages this is the full base_url incl. subpath (e.g. https://host/hals),
-// so metadata image paths like "/og.jpg" resolve to /hals/og.jpg.
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://halsthesteakhouse.com";
 const ogImage = "/og.jpg";
 
@@ -51,7 +56,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${playfair.variable} ${inter.variable}`}>
+    <html
+      lang="en"
+      className={`${anton.variable} ${archivo.variable} ${fraunces.variable}`}
+    >
       <body className="bg-ink text-cream antialiased">
         <SmoothScroll>{children}</SmoothScroll>
       </body>
