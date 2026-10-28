@@ -1,5 +1,6 @@
 import { SiteHeader } from "@/components/site/site-header";
 import { SiteFooter } from "@/components/site/site-footer";
+import { MobileActionBar } from "@/components/site/mobile-action-bar";
 import { Hero } from "@/components/sections/hero";
 import { OurStory } from "@/components/sections/our-story";
 import { Atmosphere } from "@/components/sections/atmosphere";
@@ -28,6 +29,7 @@ export default function HomePage() {
         <Reservations />
       </main>
       <SiteFooter />
+      <MobileActionBar />
     </>
   );
 }
