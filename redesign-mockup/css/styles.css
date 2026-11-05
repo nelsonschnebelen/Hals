@@ -719,6 +719,11 @@ p { margin: 0; }
   scrollbar-width: none;
 }
 
+.seg[hidden],
+.subpills[hidden] {
+  display: none;
+}
+
 .seg::-webkit-scrollbar,
 .subpills::-webkit-scrollbar,
 .section-jumps::-webkit-scrollbar { display: none; }
@@ -797,6 +802,12 @@ p { margin: 0; }
   color: var(--cream-dim);
   font-size: 0.95rem;
   max-width: 46rem;
+}
+
+.dish p.cost {
+  grid-column: auto;
+  margin: 0;
+  max-width: none;
 }
 
 .dish .cost {
@@ -883,13 +894,13 @@ details.valet ol { margin: 0.3rem 0 0; padding-left: 1.1rem; display: grid; gap:
 
 .foot-brand p { margin-top: 0.7rem; color: var(--cream-dim); max-width: 22rem; font-size: 0.95rem; }
 
-.foot-col h2 {
+.foot-col .foot-label {
   font-family: var(--sans);
   font-size: 0.72rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--gold);
-  margin-bottom: 0.7rem;
+  margin: 0 0 0.7rem;
   font-weight: 500;
   line-height: 1.2;
 }
@@ -974,15 +985,57 @@ details.valet ol { margin: 0.3rem 0 0; padding-left: 1.1rem; display: grid; gap:
   margin: 0.2rem auto 0.9rem;
 }
 
-.sheet h2 {
+.sheet-title {
   font-family: var(--sans);
   font-size: 0.75rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   text-align: center;
   color: var(--gold);
-  margin-bottom: 0.8rem;
+  margin: 0 0 0.8rem;
   font-weight: 500;
+}
+
+.js .menu-panel:not(.is-active) { display: none; }
+
+.faq-list { margin-top: 1.6rem; display: grid; gap: 0.35rem; }
+
+.faq {
+  border-top: 1px solid rgba(198, 161, 90, 0.28);
+  padding: 0.85rem 0 0.2rem;
+}
+
+.faq summary {
+  cursor: pointer;
+  list-style: none;
+  font-family: var(--serif);
+  font-size: 1.55rem;
+  line-height: 1.2;
+  color: var(--cream);
+}
+
+.faq summary::-webkit-details-marker { display: none; }
+
+.faq summary::after {
+  content: "+";
+  float: right;
+  color: var(--gold);
+  font-family: var(--serif);
+  font-size: 1.4rem;
+}
+
+.faq[open] summary::after { content: "–"; }
+
+.faq .faq-body {
+  padding: 0.7rem 0 0.8rem;
+  color: var(--cream-dim);
+  display: grid;
+  gap: 0.65rem;
+  max-width: 42rem;
+}
+
+.todo {
+  color: var(--gold-2);
 }
 
 .sheet a {

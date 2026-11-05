@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- TODO: replace PRODUCTION-HOST with the live origin before removing noindex. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://PRODUCTION-HOST/index.html</loc></url>
+  <url><loc>https://PRODUCTION-HOST/menus.html</loc></url>
+  <url><loc>https://PRODUCTION-HOST/private-events.html</loc></url>
+  <url><loc>https://PRODUCTION-HOST/about.html</loc></url>
+  <url><loc>https://PRODUCTION-HOST/visit.html</loc></url>
+</urlset>

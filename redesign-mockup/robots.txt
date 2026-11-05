@@ -1,0 +1,8 @@
+# Preview deploy: every page also sends meta robots noindex.
+# TODO: remove the noindex meta tags, and set the Sitemap host, before production.
+
+User-agent: *
+Allow: /
+
+# TODO: production origin is not set.
+# Sitemap: https://PRODUCTION-HOST/sitemap.xml
