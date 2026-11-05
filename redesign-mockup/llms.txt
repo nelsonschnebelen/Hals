@@ -23,6 +23,9 @@
 - Nashville rooms: Conservatory 6–14, Library 8–16, Study 12–24, 2nd Floor 24–64.
 - Nashville requests: https://halssteakhouse.tripleseat.com/party_request/37321
 - Atlanta room names and capacities: TODO, not published.
+- Google Business Profile URL: TODO. A public place listing says Atlanta is closed Sunday, which does not match hals.net (Sunday 4–9 PM). Sunday hours are not confirmed against the profile.
+- Online ordering URL: TODO. No order link is published on hals.net.
+- Text-selectable menu PDF: TODO. The HTML menu is the primary copy.
 
 ## Policies
 
@@ -32,11 +35,11 @@
 
 ## Pages
 
-- [Home](index.html): story, highlights, both locations, reservations
-- [Menus](menus.html): Atlanta and Nashville dinner, wine, and bar, as text
-- [Private events](private-events.html): Nashville rooms and Atlanta inquiry
-- [Our story](about.html): 1989 Buckhead, 2024 Nashville
-- [Visit](visit.html): hours, parking, reservations, FAQ
+- [Home](/): story, highlights, both locations
+- [Menu](/menu/): Atlanta and Nashville dinner, wine, and bar, as text
+- [Reservations](/reservations/): hours, parking, OpenTable, FAQ
+- [Private dining](/private-dining/): Nashville rooms and Atlanta inquiry
+- [Our story](/our-story/): 1989 Buckhead, 2024 Nashville
 
 ## Same as
 
