@@ -45,15 +45,22 @@
     <main id="main">
       <section class="hero">
         <div class="hero-media">
-          <img
-            src="images/hero-1800.jpg"
-            srcset="images/hero-960.jpg 960w, images/hero-1800.jpg 1800w"
-            sizes="(max-width: 959px) 100vw, 58vw"
-            width="1800"
-            height="1344"
-            alt="A bone-in ribeye and a glass of red wine on a white tablecloth at Hal's The Steakhouse"
-            fetchpriority="high"
-          />
+          <picture>
+            <source
+              type="image/webp"
+              srcset="images/ribeye-900.webp 900w, images/ribeye-1600.webp 1600w"
+              sizes="(max-width: 959px) 100vw, 48vw"
+            />
+            <img
+              src="images/ribeye-1600.jpg"
+              srcset="images/ribeye-900.jpg 900w, images/ribeye-1600.jpg 1600w"
+              sizes="(max-width: 959px) 100vw, 48vw"
+              width="1600"
+              height="1998"
+              alt="A server presenting a bone-in ribeye with crosshatched grill marks at Hal's"
+              fetchpriority="high"
+            />
+          </picture>
         </div>
         <div class="wrap hero-copy">
           <p class="eyebrow">Buckhead · Nashville · Est. 1989</p>
@@ -92,17 +99,20 @@
           </div>
           <figure class="figure">
             <div class="frame">
-              <img
-                src="images/table-1600.jpg"
-                srcset="images/table-800.jpg 800w, images/table-1600.jpg 1600w"
-                sizes="(max-width: 719px) 100vw, 42vw"
-                width="1600"
-                height="2000"
-                alt="A shared table at Hal's with steak, broccoli, wine, a martini, and flowers"
-                loading="lazy"
-              />
+              <picture>
+                <source type="image/webp" srcset="images/couple-800.webp 800w, images/couple-1400.webp 1400w" sizes="(max-width: 719px) 100vw, 42vw" />
+                <img
+                  src="images/couple-1400.jpg"
+                  srcset="images/couple-800.jpg 800w, images/couple-1400.jpg 1400w"
+                  sizes="(max-width: 719px) 100vw, 42vw"
+                  width="1400"
+                  height="1750"
+                  alt="Two guests at a table at Hal's, with a glass of red wine and a martini"
+                  loading="lazy"
+                />
+              </picture>
             </div>
-            <figcaption>A table at Hal's</figcaption>
+            <figcaption>Guests at the table</figcaption>
           </figure>
         </div>
       </section>
@@ -112,29 +122,37 @@
           <div class="feature">
             <figure class="figure">
               <div class="frame">
-                <img
-                  src="images/starters-1400.jpg"
-                  srcset="images/starters-800.jpg 800w, images/starters-1400.jpg 1400w"
-                  sizes="(max-width: 719px) 100vw, 40vw"
-                  width="1400"
-                  height="1750"
-                  alt="Starters on a white cloth at Hal's: fried calamari with marinara, onion rings, and a tall beer"
-                  loading="lazy"
-                />
+                <picture>
+                  <source type="image/webp" srcset="images/lamb-800.webp 800w, images/lamb-1400.webp 1400w" sizes="(max-width: 719px) 100vw, 40vw" />
+                  <img
+                    src="images/lamb-1400.jpg"
+                    srcset="images/lamb-800.jpg 800w, images/lamb-1400.jpg 1400w"
+                    sizes="(max-width: 719px) 100vw, 40vw"
+                    width="1400"
+                    height="1750"
+                    alt="Sliced rack of lamb in a dark red sauce, finished with parsley"
+                    loading="lazy"
+                  />
+                </picture>
               </div>
-              <figcaption>Starters at the table</figcaption>
+              <figcaption>Rack of lamb</figcaption>
             </figure>
             <div>
               <p class="eyebrow">From the menu</p>
               <h2>A few plates worth the evening.</h2>
               <hr class="rule" />
               <article class="dish-feature" style="margin-top: 1.4rem">
-                <p class="meta-line">Atlanta · Beef</p>
-                <h3>Prime bone-in ribeye, 22 oz.</h3>
-                <p class="price-lg">$88</p>
-                <p class="lede" style="margin-top: 0.6rem">Grilled and finished with a butter sauce.</p>
+                <p class="meta-line">Atlanta and Nashville</p>
+                <h3>Rack of lamb</h3>
+                <p class="price-lg">$50</p>
+                <p class="lede" style="margin-top: 0.6rem">Roasted New Zealand rack rubbed with rosemary, served with a red wine and mint jelly reduction.</p>
               </article>
               <ul class="highlight-list">
+                <li>
+                  <h3>Prime bone-in ribeye, 22 oz.</h3>
+                  <span class="cost">$88</span>
+                  <p>Grilled and finished with a butter sauce. Atlanta.</p>
+                </li>
                 <li>
                   <h3>Filet mignon au poivre, 12 oz.</h3>
                   <span class="cost">$72</span>
@@ -144,11 +162,6 @@
                   <h3>Trout with colossal crabmeat</h3>
                   <span class="cost">$53</span>
                   <p>Speckled trout lightly battered and fried, topped with sautéed jumbo lump crabmeat.</p>
-                </li>
-                <li>
-                  <h3>Hal's ribeye</h3>
-                  <span class="cost">$87</span>
-                  <p>Prime bone-in lean cut, the eye of the ribeye, finished with a butter sauce.</p>
                 </li>
               </ul>
               <div class="actions">
@@ -198,8 +211,11 @@
           <p class="lede" style="margin-top: 1rem">Book on OpenTable, or call the room. Someone who has worked here for years will pick up.</p>
           <div class="loc-grid" style="margin-top: 2rem">
             <article class="card">
-              <div class="frame wide">
-                <img src="images/atlanta-placeholder.jpg" width="1600" height="1000" alt="Placeholder: photograph to come for the Buckhead dining room" loading="lazy" />
+              <div class="frame portrait">
+                <picture>
+                  <source type="image/webp" srcset="images/exterior-800.webp 800w, images/exterior-1400.webp 1400w" sizes="(max-width: 719px) 100vw, 46vw" />
+                  <img class="obj-sign" src="images/exterior-1400.jpg" srcset="images/exterior-800.jpg 800w, images/exterior-1400.jpg 1400w" sizes="(max-width: 719px) 100vw, 46vw" width="1400" height="1866" alt="Guests outside Hal's in Buckhead, beneath the red neon sign" loading="lazy" />
+                </picture>
               </div>
               <div class="card-body">
                 <p class="where">Buckhead</p>
@@ -222,16 +238,11 @@
               </div>
             </article>
             <article class="card">
-              <div class="frame wide">
-                <img
-                  src="images/dining-1600.jpg"
-                  srcset="images/dining-900.jpg 900w, images/dining-1600.jpg 1600w"
-                  sizes="(max-width: 719px) 100vw, 46vw"
-                  width="1600"
-                  height="1600"
-                  alt="A private dining table at Hal's Nashville, with the dining room visible through the doorway"
-                  loading="lazy"
-                />
+              <div class="frame portrait">
+                <picture>
+                  <source type="image/webp" srcset="images/room-bar-900.webp 900w, images/room-bar-1600.webp 1600w" sizes="(max-width: 719px) 100vw, 46vw" />
+                  <img class="obj-room" src="images/room-bar-1600.jpg" srcset="images/room-bar-900.jpg 900w, images/room-bar-1600.jpg 1600w" sizes="(max-width: 719px) 100vw, 46vw" width="1600" height="2000" alt="The Nashville dining room, white linen tables set in front of the bar" loading="lazy" />
+                </picture>
               </div>
               <div class="card-body">
                 <p class="where">Downtown · SoBro</p>

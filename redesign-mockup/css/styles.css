@@ -295,7 +295,7 @@ p { margin: 0; }
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: 68% 72%;
+  object-position: center 42%;
 }
 
 .hero-media::after {
@@ -405,6 +405,9 @@ p { margin: 0; }
 }
 
 .frame.wide { aspect-ratio: 16 / 10; }
+.frame.portrait { aspect-ratio: 4 / 5; }
+.obj-sign { object-position: center 20%; }
+.obj-room { object-position: center 48%; }
 .frame.square { aspect-ratio: 1; }
 
 .figure figcaption {
@@ -1038,7 +1041,7 @@ details.valet ol { margin: 0.3rem 0 0; padding-left: 1.1rem; display: grid; gap:
   }
   .hero h1 { font-size: clamp(4.2rem, 5.2vw, 5.8rem); }
   .hero-media img {
-    object-position: 64% 62%;
+    object-position: center 46%;
     transform: none;
   }
   .hero-media::after {
