@@ -1,0 +1,16 @@
+# Preview pages send meta robots noindex. This file does not block crawlers.
+# Sitemap host is SITE_URL in js/site-url.js. Swap that constant at launch.
+
+User-agent: *
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+Sitemap: https://hals-redesign-preview.netlify.app/sitemap.xml

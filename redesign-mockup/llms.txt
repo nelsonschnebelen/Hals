@@ -1,0 +1,56 @@
+# Hal's The Steakhouse
+
+> Preview of a redesigned site for Hal's The Steakhouse, Buckhead (Atlanta) and downtown Nashville. This deploy is noindex. Facts below are from hals.net, this site's existing copy, and the Nashville events page. Unknowns are marked TODO.
+
+## Locations
+
+- Atlanta: 30 Old Ivy Road NE, Atlanta, GA 30342. (404) 261-0025. EventCoordinator@hals.net. OpenTable: https://www.opentable.com/hals-the-steakhouse
+- Nashville: 407 Korean Veterans Blvd, Nashville, TN 37203. (615) 560-7733. Nashville@hals.net. Events: NashvilleEvents@hals.net. OpenTable: https://www.opentable.com/r/hals-the-steakhouse-nashville
+
+## Hours
+
+- Atlanta dining, as published on hals.net: Monday–Saturday 5–11 PM, Sunday 4–9 PM. Bar opens at 4 PM. Atlanta bar close time is not published.
+- Nashville kitchen: Tue–Thu 4:30–10 PM, Fri–Sat 4:30–11 PM, Sun–Mon 4:30–9 PM.
+- Nashville bar: Tue–Thu 4–11 PM, Fri–Sat 4 PM–midnight, Sun–Mon 4–10 PM.
+
+## Parking
+
+- Atlanta valet: $5. Approach directions are not published.
+- Nashville valet: $12 at the AC Hotel Marriott deck on Rep. John Lewis Way S. The restaurant is on the bottom floor of the AC Hotel.
+
+## Private dining
+
+- Nashville rooms: Conservatory 6–14, Library 8–16, Study 12–24, 2nd Floor 24–64.
+- Nashville requests: https://halssteakhouse.tripleseat.com/party_request/37321
+- Atlanta room names and capacities: TODO, not published.
+- Google Business Profile URL: TODO. A public place listing says Atlanta is closed Sunday, which does not match hals.net (Sunday 4–9 PM). Sunday hours are not confirmed against the profile.
+- Online ordering URL: TODO. No order link is published on hals.net.
+- Text-selectable menu PDF: TODO. The HTML menu is the primary copy.
+
+## Policies
+
+- Separate checks are not offered, except equal payments.
+- Outside wine is not permitted.
+- Dress code: TODO. hals.net has the heading and does not publish the rule.
+
+## Pages
+
+- [Home](/): story, highlights, both locations
+- [Menu](/menu/): Atlanta and Nashville dinner, wine, and bar, as text
+- [Reservations](/reservations/): hours, parking, OpenTable, FAQ
+- [Private dining](/private-dining/): Nashville rooms and Atlanta inquiry
+- [Our story](/our-story/): 1989 Buckhead, 2024 Nashville
+
+## Same as
+
+- Instagram: https://www.instagram.com/halsthesteakhouse/
+- Facebook Atlanta: https://www.facebook.com/halsatlanta/
+- Facebook Nashville: https://www.facebook.com/people/Hals-The-Steakhouse-Nashville/61560298641045/
+
+## TODO before production
+
+- Remove meta robots noindex.
+- Set the production origin in sitemap.xml, robots.txt, and absolute URLs in Open Graph and schema.org.
+- geo coordinates are not in the source material.
+- priceRange is not published on hals.net.
+- Atlanta bar close time, Atlanta valet directions, Atlanta private-room names and capacities, and the dress code.
