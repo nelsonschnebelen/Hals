@@ -1,5 +1,5 @@
 # Preview pages send meta robots noindex. This file does not block crawlers.
-# TODO: set the production origin, then uncomment the Sitemap line, before removing noindex.
+# Sitemap host is SITE_URL in js/site-url.js. Swap that constant at launch.
 
 User-agent: *
 Allow: /
@@ -13,4 +13,4 @@ Allow: /
 User-agent: PerplexityBot
 Allow: /
 
-# Sitemap: https://PRODUCTION-HOST/sitemap.xml
+Sitemap: https://hals-redesign-preview.netlify.app/sitemap.xml

@@ -32,7 +32,7 @@
       area: "Buckhead",
       phone: "(404) 261-0025",
       tel: "tel:+14042610025",
-      book: "https://www.opentable.com/hals-the-steakhouse",
+      book: "https://www.opentable.com/r/hals-the-steakhouse-atlanta",
       map: "https://www.google.com/maps/search/?api=1&query=Hal%27s%20The%20Steakhouse%2030%20Old%20Ivy%20Road%20NE%20Atlanta%20GA%2030342",
     },
     nashville: {

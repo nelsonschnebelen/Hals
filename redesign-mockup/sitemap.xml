@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- TODO: replace PRODUCTION-HOST with the live origin before removing noindex. -->
+<!-- Host comes from SITE_URL in js/site-url.js. Swap that constant at launch. -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://PRODUCTION-HOST/</loc></url>
-  <url><loc>https://PRODUCTION-HOST/menu/</loc></url>
-  <url><loc>https://PRODUCTION-HOST/reservations/</loc></url>
-  <url><loc>https://PRODUCTION-HOST/private-dining/</loc></url>
-  <url><loc>https://PRODUCTION-HOST/our-story/</loc></url>
+  <url><loc>https://hals-redesign-preview.netlify.app/</loc></url>
+  <url><loc>https://hals-redesign-preview.netlify.app/menu/</loc></url>
+  <url><loc>https://hals-redesign-preview.netlify.app/reservations/</loc></url>
+  <url><loc>https://hals-redesign-preview.netlify.app/private-dining/</loc></url>
+  <url><loc>https://hals-redesign-preview.netlify.app/our-story/</loc></url>
 </urlset>
